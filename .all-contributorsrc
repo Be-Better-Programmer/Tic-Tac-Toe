@@ -13,6 +13,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "anandkumarkparmar",
+      "name": "Anand K Parmar",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20661863?v=4",
+      "profile": "http://linkedin.com/in/anandkparmar",
+      "contributions": [
+        "code",
+        "projectManagement",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
