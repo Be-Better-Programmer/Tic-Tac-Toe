@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
+    <string name="app_tag_name">master piece</string>
+    <string name="app_design_By_name">Designed @ bebetterprogrammer.com v1.0</string>
+    <string name="you">YOU</string>
+    <string name="jarvis">JARVIS</string>
+    <string name="vs">vs</string>
+    <string name="friend">FRIEND</string>
 </resources>
