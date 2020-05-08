@@ -108,7 +108,6 @@
             android:id="@+id/playWithFriend"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            style="@style/HomePageButtonTheme"
             android:background="@drawable/layout_button"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="@dimen/default_button_margin"
