@@ -1,0 +1,45 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "meetkparmar",
+      "name": "Meet K Parmar",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/40732154?v=4",
+      "profile": "https://www.linkedin.com/in/meetkparmar/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "anandkumarkparmar",
+      "name": "Anand K Parmar",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/20661863?v=4",
+      "profile": "http://linkedin.com/in/anandkparmar",
+      "contributions": [
+        "code",
+        "projectManagement",
+        "review",
+        "design"
+      ]
+    },
+    {
+      "login": "all-contributors",
+      "name": "All Contributors",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/46410174?v=4",
+      "profile": "https://allcontributors.org",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Tic-Tac-Toe",
+  "projectOwner": "Be-Better-Programmer",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
