@@ -1,7 +1,8 @@
 # Tic-Tac-Toe
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+
 An Interesting and well-known Tic Tac Toe Game with Single And Multi-Player functionality
 
 ## Contributors ✨
