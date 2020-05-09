@@ -22,6 +22,11 @@ licenses:
     - 'android-sdk-preview-license-.+'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
+
+branches:
+  only:
+  - master
+  - develop
     
 before_install: 
     - yes | sdkmanager "platforms;android-28"
