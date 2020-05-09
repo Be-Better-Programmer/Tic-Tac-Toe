@@ -3,6 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![Join the chat at https://bebetterprogrammer.slack.com/](https://img.shields.io/badge/slack-bebetterprogrammer-blue?logo=slack)](https://bebetterprogrammer.slack.com/)
+[![Build Status](https://api.travis-ci.com/Be-Better-Programmer/Tic-Tac-Toe.svg?branch=develop)](https://travis-ci.com/github/Be-Better-Programmer/Tic-Tac-Toe)
 
 An Interesting and well-known Tic Tac Toe Game with Single And Multi-Player functionality
 
