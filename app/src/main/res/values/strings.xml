@@ -6,4 +6,6 @@
     <string name="jarvis">JARVIS</string>
     <string name="vs">vs</string>
     <string name="friend">FRIEND</string>
+    <string name="rematch">Rematch</string>
+    <string name="quit">Quit</string>
 </resources>
