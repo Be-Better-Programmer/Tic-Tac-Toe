@@ -23,7 +23,7 @@ class PlayWithFriendActivity : AppCompatActivity() {
 
             val circle = findViewById<ImageButton>(R.id.circle)
             circle.setOnClickListener(View.OnClickListener {
-                flag=0
+                flag = 0
             })
 
             val cross = findViewById<ImageButton>(R.id.cross)
@@ -34,40 +34,21 @@ class PlayWithFriendActivity : AppCompatActivity() {
             btnPlay.setOnClickListener(View.OnClickListener {
                 if (TextUtils.isEmpty(p1.text) || TextUtils.isEmpty(p2.text)) {
                     if (TextUtils.isEmpty(p1.text) && TextUtils.isEmpty(p2.text)) {
-                        Toast.makeText(this@PlayWithFriendActivity,"Enter Player Name",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@PlayWithFriendActivity, "Enter Player Name", Toast.LENGTH_SHORT).show()
+                    } else if (TextUtils.isEmpty(p1.text)) {
+                        Toast.makeText(this@PlayWithFriendActivity, "Enter Player_1 Name", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@PlayWithFriendActivity, "Enter Player_2 Name", Toast.LENGTH_SHORT).show()
                     }
-                    else if (TextUtils.isEmpty(p1.text)){
-                        Toast.makeText(this@PlayWithFriendActivity,"Enter Player_1 Name",Toast.LENGTH_SHORT).show()
-                    }
-                    else {
-                        val toast = Toast.makeText(
-                            this@PlayWithFriendActivity,
-                            "Enter Player_2 Name",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
-                    }
-                }
-                else {
-                    if (flag == 0){
-                        val toast = Toast.makeText(
-                            this@PlayWithFriendActivity,
-                            " " + p1.text + " Move First",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
+                } else {
+                    if (flag == 0) {
+                        Toast.makeText(this@PlayWithFriendActivity, " " + p1.text + " Move First", Toast.LENGTH_SHORT).show()
 //                        var intent = Intent(this, Dummyactivity::class.java)
 //                        intent.putExtra("playername",p1.text.toString())
 //                        startActivity(intent)
 //                        finish()
-                    }
-                    else if (flag == 1){
-                        val toast = Toast.makeText(
-                            this@PlayWithFriendActivity,
-                            " " + p2.text + " Move First",
-                            Toast.LENGTH_SHORT
-                        )
-                        toast.show()
+                    } else if (flag == 1) {
+                        Toast.makeText(this@PlayWithFriendActivity, " " + p2.text + " Move First", Toast.LENGTH_SHORT).show()
 //                        var intent = Intent(this, Dummyactivity::class.java)
 //                        intent.putExtra("playername",p2.text.toString())
 //                        startActivity(intent)
