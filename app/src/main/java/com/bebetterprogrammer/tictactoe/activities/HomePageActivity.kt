@@ -1,14 +1,11 @@
 package com.bebetterprogrammer.tictactoe.activities
 
 import android.content.Context
-import android.os.Build
+import android.content.Intent
 import android.os.Bundle
-import android.transition.Slide
 import android.transition.TransitionManager
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -55,7 +52,7 @@ class HomePageActivity : AppCompatActivity() {
             )
 
 
-//            val i = Intent(applicationContext, HomePageActivity::class.java)
+//            val i = Intent(this, PlayWithFriendActivity::class.java)
 //            startActivity(i)
 
 //            val toast = Toast.makeText(
@@ -67,15 +64,14 @@ class HomePageActivity : AppCompatActivity() {
         }
         playWithFriend.setOnClickListener {
 
-//            val i = Intent(applicationContext, HomePageActivity::class.java)
-//            startActivity(i)
+            val i = Intent(this, PlayWithFriendActivity::class.java)
+            startActivity(i)
 
             val toast = Toast.makeText(
                 applicationContext,
                 "Play with Your FRIEND😀",
                 Toast.LENGTH_SHORT
             )
-
             toast.show()
         }
     }

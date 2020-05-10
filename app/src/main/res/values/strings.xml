@@ -8,4 +8,9 @@
     <string name="friend">FRIEND</string>
     <string name="rematch">Rematch</string>
     <string name="quit">Quit</string>
+    <string name="player_name">Player Name</string>
+    <string name="play_button">PLAY</string>
+    <string name="quit_button">QUIT</string>
+    <string name="circle_hint_text">Player-O</string>
+    <string name="cross_hint_text">Player-X</string>
 </resources>
