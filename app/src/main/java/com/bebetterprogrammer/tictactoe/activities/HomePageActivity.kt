@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_home_page.*
 
-
 class HomePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
