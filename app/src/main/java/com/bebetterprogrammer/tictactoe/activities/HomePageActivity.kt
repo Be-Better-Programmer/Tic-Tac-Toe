@@ -1,5 +1,6 @@
 package com.bebetterprogrammer.tictactoe.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +14,7 @@ class HomePageActivity : AppCompatActivity() {
 
         playWithJarvis.setOnClickListener {
 
-//            val i = Intent(applicationContext, HomePageActivity::class.java)
+//            val i = Intent(this, PlayWithFriendActivity::class.java)
 //            startActivity(i)
 
             val toast = Toast.makeText(
@@ -25,15 +26,14 @@ class HomePageActivity : AppCompatActivity() {
         }
         playWithFriend.setOnClickListener {
 
-//            val i = Intent(applicationContext, HomePageActivity::class.java)
-//            startActivity(i)
+            val i = Intent(this, PlayWithFriendActivity::class.java)
+            startActivity(i)
 
             val toast = Toast.makeText(
                 applicationContext,
                 "Play with Your FRIEND😀",
                 Toast.LENGTH_SHORT
             )
-
             toast.show()
         }
     }
