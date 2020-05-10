@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FAD961" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Tic-Tac-Toe" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="VsJarvisTie" transform="translate(-140.000000, -213.000000)">
+            <g id="Group" transform="translate(140.000000, 213.000000)">
+                <circle id="Oval" fill="url(#linearGradient-1)" cx="40" cy="40" r="40"></circle>
+                <path d="M51.6666667,23.6666667 L51.6666667,19 L28.3333333,19 L28.3333333,23.6666667 L19,23.6666667 L19,30.6666667 C19,36.6166667 23.48,41.47 29.2433333,42.1933333 C30.7133333,45.6933333 33.8633333,48.33 37.6666667,49.1 L37.6666667,56.3333333 L28.3333333,56.3333333 L28.3333333,61 L51.6666667,61 L51.6666667,56.3333333 L42.3333333,56.3333333 L42.3333333,49.1 C46.1366667,48.33 49.2866667,45.6933333 50.7566667,42.1933333 C56.52,41.47 61,36.6166667 61,30.6666667 L61,23.6666667 L51.6666667,23.6666667 Z M28.3333333,37.2466667 C25.6266667,36.2666667 23.6666667,33.7 23.6666667,30.6666667 L23.6666667,28.3333333 L28.3333333,28.3333333 L28.3333333,37.2466667 Z M56.3333333,30.6666667 C56.3333333,33.7 54.3733333,36.2666667 51.6666667,37.2466667 L51.6666667,28.3333333 L56.3333333,28.3333333 L56.3333333,30.6666667 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
