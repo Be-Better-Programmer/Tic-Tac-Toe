@@ -22,7 +22,8 @@
       "contributions": [
         "code",
         "projectManagement",
-        "review"
+        "review",
+        "design"
       ]
     },
     {
@@ -32,6 +33,15 @@
       "profile": "https://allcontributors.org",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "UmangGoti",
+      "name": "UmangGoti",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/64679424?v=4",
+      "profile": "https://github.com/UmangGoti",
+      "contributions": [
+        "code"
       ]
     }
   ],

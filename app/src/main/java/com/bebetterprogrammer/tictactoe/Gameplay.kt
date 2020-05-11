@@ -8,6 +8,7 @@ import android.widget.AbsListView
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import com.bebetterprogrammer.tictactoe.activities.HomePageActivity
 import kotlinx.android.synthetic.main.activity_gameplay.*
 
 class Gameplay : AppCompatActivity() {
@@ -44,6 +45,7 @@ class Gameplay : AppCompatActivity() {
                         var p1 = p1_winning.text.toString().toInt()
                         p1++
                         p1_winning.text = p1.toString()
+
                     }
                 }
                 else{
@@ -68,23 +70,24 @@ class Gameplay : AppCompatActivity() {
         val intent = getIntent()
         val P1 = intent.getStringExtra("Player1")
         val P2 = intent.getStringExtra("Player2")
-        val Player = intent.getStringExtra("Player")
-        var GameOver = false
+        val Player = intent.getIntExtra("Player",0)
+
 
 
         Player1.text = P1
         Player2.text = P2
 
 
-            if (Player.equals("1")) {
+            if (Player ==  0) {
                 first = 0
                 turn = 0 //O
-            } else if (Player.equals("2")) {
+            }
+            else if (Player == 1) {
                 turn = 1 //X
                 first = 1
             }
             quit.setOnClickListener{
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, HomePageActivity::class.java)
                 startActivity(intent)
             }
         }
