@@ -46,16 +46,16 @@ class PlayWithFriendActivity : AppCompatActivity() {
                     if (flag == 0) {
                         Toast.makeText(this, " " + p1.text + " Move First", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, Gameplay::class.java)
-                        intent.putExtra("Player1",p1.text.toString())
-                        intent.putExtra("Player2",p2.text.toString())
-                        intent.putExtra("Player",0)
+                        intent.putExtra("Player1", p1.text.toString())
+                        intent.putExtra("Player2", p2.text.toString())
+                        intent.putExtra("Player", 0)
                         startActivity(intent)
                     } else if (flag == 1) {
                         Toast.makeText(this, " " + p2.text + " Move First", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, Gameplay::class.java)
-                        intent.putExtra("Player1",p1.text.toString())
-                        intent.putExtra("Player2",p2.text.toString())
-                        intent.putExtra("Player",1)
+                        intent.putExtra("Player1", p1.text.toString())
+                        intent.putExtra("Player2", p2.text.toString())
+                        intent.putExtra("Player", 1)
                         startActivity(intent)
                     }
                 }

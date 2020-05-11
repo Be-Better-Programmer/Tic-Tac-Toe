@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AbsListView
-//import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
 import com.bebetterprogrammer.tictactoe.activities.HomePageActivity
 import kotlinx.android.synthetic.main.activity_gameplay.*
 
@@ -34,11 +31,9 @@ class Gameplay : AppCompatActivity() {
                 img.setImageResource(R.drawable.crosnew)
             }
             turn++
-            turn = turn % 2
-
+            turn %= 2
             img.animate().translationYBy(1000f).setDuration(100)
         }
-
         for (winPosition in winPosition) {
             if (gameState[winPosition[0]] == gameState[winPosition[1]] && gameState[winPosition[1]] == gameState[winPosition[2]] && gameState[winPosition[0]] != 2) {
                 //won
@@ -48,7 +43,6 @@ class Gameplay : AppCompatActivity() {
                         var p1 = p1_winning.text.toString().toInt()
                         p1++
                         p1_winning.text = p1.toString()
-
                     }
                 } else {
                     if (won == 0) {
@@ -60,10 +54,7 @@ class Gameplay : AppCompatActivity() {
                 }
             }
         }
-
     }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gameplay)
@@ -71,18 +62,13 @@ class Gameplay : AppCompatActivity() {
         val P1 = intent.getStringExtra("Player1")
         val P2 = intent.getStringExtra("Player2")
         val Player = intent.getIntExtra("Player", 0)
-
-
-
         Player1.text = P1
         Player2.text = P2
-
-
         if (Player == 0) {
             first = 0
-            turn = 0 //O
+            turn = 0
         } else if (Player == 1) {
-            turn = 1 //X
+            turn = 1
             first = 1
         }
         quit.setOnClickListener {
@@ -90,6 +76,5 @@ class Gameplay : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-
 }
+̥
