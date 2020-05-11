@@ -77,4 +77,3 @@ class Gameplay : AppCompatActivity() {
         }
     }
 }
-̥
