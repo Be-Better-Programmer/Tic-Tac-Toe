@@ -1,5 +1,4 @@
 package com.bebetterprogrammer.tictactoe
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,7 +35,7 @@ class Gameplay : AppCompatActivity() {
         }
         for (winPosition in winPosition) {
             if (gameState[winPosition[0]] == gameState[winPosition[1]] && gameState[winPosition[1]] == gameState[winPosition[2]] && gameState[winPosition[0]] != 2) {
-                //won
+                // won
                 if (turn == 1) {
                     if (won == 0) {
                         won = 1
