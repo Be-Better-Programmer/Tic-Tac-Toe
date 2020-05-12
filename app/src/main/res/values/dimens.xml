@@ -12,11 +12,12 @@
     <dimen name="circle_player_name_top_margin">70sp</dimen>
     <dimen name="cross_player_name_left_margin">10sp</dimen>
     <dimen name="player_name_left_margin">50sp</dimen>
-    <dimen name="player_edittext_top_margin">8sp</dimen>
+    <dimen name="player_edit_text_top_margin">8sp</dimen>
     <dimen name="circle_cross_top_margin">10sp</dimen>
     <dimen name="circle_left_margin">150sp</dimen>
     <dimen name="cross_left_margin">50sp</dimen>
     <dimen name="play_button_top_margin">40sp</dimen>
     <dimen name="quit_button_top_margin">20sp</dimen>
     <dimen name="app_design_by_top_margin">20sp</dimen>
+    <dimen name="default_text_size">16dp</dimen>
 </resources>

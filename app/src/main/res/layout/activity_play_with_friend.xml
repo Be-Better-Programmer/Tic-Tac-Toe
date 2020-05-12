@@ -1,184 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".activities.PlayWithFriendActivity"
-    android:orientation="vertical"
-    android:weightSum="2">
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="@dimen/setting_button_margin"
+        android:layout_marginEnd="@dimen/setting_button_margin"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            fontPath="font/Righteous-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/righteous"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_icon_size" />
+
+        <TextView
+            fontPath="font/SnellRoundhand.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/snell_round_hand"
+            android:text="@string/app_tag_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_tag_name_size"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/linear2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appName">
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/circle_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_circle_white"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/player_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <EditText
+            android:id="@+id/player_one"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/player_edit_text_top_margin"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="@string/circle_hint_text"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <TextView
+            android:id="@+id/cross_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_cross_white"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/player_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <EditText
+            android:id="@+id/player_two"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/player_edit_text_top_margin"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="@string/cross_hint_text"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <TextView
+            android:id="@+id/choice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/who_will_move_first"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
 
-            <ImageButton
-                android:id="@+id/setting_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="370dp"
-                android:background="@drawable/ic_settings" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/app_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/righteous"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="50sp" />
-
-            <TextView
-                android:id="@+id/subTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/app_title"
-                android:fontFamily="@font/snell_round_hand"
-                android:text="@string/app_tag_name"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="22dp" />
-
-            <TextView
-                android:id="@+id/circle_player"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/subTitle"
-                android:layout_marginTop="@dimen/circle_player_name_top_margin"
-                android:layout_marginLeft="@dimen/player_name_left_margin"
-                android:text="@string/player_name"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:drawableLeft="@drawable/ic_circle_white"
-                android:gravity="center"
-                android:drawablePadding="10dp"
-                android:singleLine="true"/>
-
-            <EditText
-                android:id="@+id/player_one"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/circle_player"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="@dimen/player_name_left_margin"
-                android:layout_marginTop="@dimen/player_edittext_top_margin"
-                android:backgroundTint="@color/white"
-                android:ems="10"
-                android:hint="@string/circle_hint_text"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
-            <TextView
-                android:id="@+id/cross_player"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/player_one"
-                android:layout_marginLeft="@dimen/player_name_left_margin"
-                android:layout_marginTop="@dimen/cross_player_name_left_margin"
-                android:text="@string/player_name"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:drawableLeft="@drawable/ic_cross_white"
-                android:gravity="center"
-                android:drawablePadding="10dp"
-                android:singleLine="true"/>
-
-            <EditText
-                android:id="@+id/player_two"
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cross_player"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/player_edittext_top_margin"
-                android:layout_marginLeft="50dp"
-                android:backgroundTint="@color/white"
-                android:ems="10"
-                android:hint="@string/cross_hint_text"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
-            <TextView
-                android:id="@+id/choice"
-                android:text="Who will move first?"
-                android:layout_width="match_parent"
-                android:layout_below="@+id/player_two"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/white"/>
             <ImageButton
                 android:id="@+id/circle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/choice"
-                android:layout_marginTop="@dimen/circle_cross_top_margin"
-                android:layout_marginLeft="@dimen/circle_left_margin"
-                android:background="@drawable/ic_circle_white"/>
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/ic_circle_white"
+                android:background="@android:color/transparent" />
+
             <ImageButton
                 android:id="@+id/cross"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/choice"
-                android:layout_marginTop="@dimen/circle_cross_top_margin"
-                android:layout_marginLeft="@dimen/cross_left_margin"
-                android:layout_toRightOf="@+id/circle"
-                android:background="@drawable/ic_cross_white"/>
-        </RelativeLayout>
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:src="@drawable/ic_cross_white"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linear2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/layout_bg">
-        <RelativeLayout
+        android:background="@drawable/layout_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/play"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/default_button_margin"
+            android:layout_marginTop="@dimen/play_button_top_margin"
+            android:layout_marginEnd="@dimen/default_button_margin"
+            android:background="@drawable/layout_play_button"
+            android:text="@string/play_button"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/play"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/play_button_top_margin"
-                android:background="@drawable/layout_play_button"
-                android:text="@string/play_button"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
+        <Button
+            android:id="@+id/quit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/default_button_margin"
+            android:layout_marginTop="@dimen/quit_button_top_margin"
+            android:layout_marginEnd="@dimen/default_button_margin"
+            android:background="@drawable/layout_quit_button"
+            android:text="@string/quit_button"
+            android:textColor="#e60000"
+            android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/quit"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/play"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/quit_button_top_margin"
-                android:background="@drawable/layout_quit_button"
-                android:text="@string/quit_button"
-                android:textAlignment="center"
-                android:textColor="#e60000"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/quit"
-                android:text="@string/app_design_By_name"
-                android:layout_marginTop="@dimen/app_design_by_top_margin"
-                android:layout_centerInParent="true"
-                android:textSize="@dimen/app_design_by_text_size"
-                />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/appBottomLine"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="bottom"
+            android:text="@string/app_design_By_name"
+            android:textSize="@dimen/app_design_by_text_size" />
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

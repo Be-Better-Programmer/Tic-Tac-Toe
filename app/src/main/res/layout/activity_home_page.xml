@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/homePage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
@@ -20,11 +19,13 @@
 
     <LinearLayout
         android:id="@+id/appName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             fontPath="font/Righteous-Regular.ttf"
@@ -50,15 +51,16 @@
 
     <ImageView
         android:id="@+id/appImage"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_game_board"
         app:layout_constraintTop_toBottomOf="@id/appName"
-        android:layout_marginTop="48dp" />
+        app:layout_constraintBottom_toTopOf="@id/bottomLayout"/>
 
     <LinearLayout
+        android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +72,6 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/layout_button"
-            android:shadowRadius="0"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="@dimen/default_button_margin"
             android:layout_marginRight="@dimen/default_button_margin"
@@ -145,6 +146,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/appBottomLine"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/app_design_By_name"
