@@ -80,14 +80,16 @@
             android:hint="@string/circle_hint_text"
             android:inputType="text"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="#99FFFFFF"
+            android:textSize="@dimen/default_text_size"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/cross_player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_cross_white"
             android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_cross_white"
             android:drawablePadding="10dp"
             android:gravity="center"
             android:singleLine="true"
@@ -105,13 +107,15 @@
             android:hint="@string/cross_hint_text"
             android:inputType="text"
             android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColorHint="#99FFFFFF"
+            android:textSize="@dimen/default_text_size"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/choice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="@string/who_will_move_first"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -129,16 +133,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
-                android:src="@drawable/ic_circle_white"
-                android:background="@android:color/transparent" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_circle_white" />
 
             <ImageButton
                 android:id="@+id/cross"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="24dp"
-                android:src="@drawable/ic_cross_white"
-                android:background="@android:color/transparent" />
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_cross_white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -159,8 +163,8 @@
             android:layout_marginEnd="@dimen/default_button_margin"
             android:background="@drawable/layout_play_button"
             android:text="@string/play_button"
-            android:textColor="@color/colorPrimary"
-            android:textSize="24sp" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/button_text_size" />
 
         <Button
             android:id="@+id/quit"
@@ -172,7 +176,7 @@
             android:background="@drawable/layout_quit_button"
             android:text="@string/quit_button"
             android:textColor="#e60000"
-            android:textSize="24sp" />
+            android:textSize="@dimen/button_text_size" />
 
         <TextView
             android:id="@+id/appBottomLine"
