@@ -1,5 +1,6 @@
 package com.bebetterprogrammer.tictactoe.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bebetterprogrammer.tictactoe.Gameplay
 import com.bebetterprogrammer.tictactoe.R
 
 class PlayWithFriendActivity : AppCompatActivity() {
@@ -34,25 +36,27 @@ class PlayWithFriendActivity : AppCompatActivity() {
             btnPlay.setOnClickListener(View.OnClickListener {
                 if (TextUtils.isEmpty(p1.text) || TextUtils.isEmpty(p2.text)) {
                     if (TextUtils.isEmpty(p1.text) && TextUtils.isEmpty(p2.text)) {
-                        Toast.makeText(this@PlayWithFriendActivity, "Enter Player Name", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Enter Player Name", Toast.LENGTH_SHORT).show()
                     } else if (TextUtils.isEmpty(p1.text)) {
-                        Toast.makeText(this@PlayWithFriendActivity, "Enter Player_1 Name", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Enter Player_1 Name", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this@PlayWithFriendActivity, "Enter Player_2 Name", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Enter Player_2 Name", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     if (flag == 0) {
-                        Toast.makeText(this@PlayWithFriendActivity, " " + p1.text + " Move First", Toast.LENGTH_SHORT).show()
-//                        var intent = Intent(this, Dummyactivity::class.java)
-//                        intent.putExtra("playername",p1.text.toString())
-//                        startActivity(intent)
-//                        finish()
+                        Toast.makeText(this, " " + p1.text + " Move First", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Gameplay::class.java)
+                        intent.putExtra("Player1", p1.text.toString())
+                        intent.putExtra("Player2", p2.text.toString())
+                        intent.putExtra("Player", 0)
+                        startActivity(intent)
                     } else if (flag == 1) {
-                        Toast.makeText(this@PlayWithFriendActivity, " " + p2.text + " Move First", Toast.LENGTH_SHORT).show()
-//                        var intent = Intent(this, Dummyactivity::class.java)
-//                        intent.putExtra("playername",p2.text.toString())
-//                        startActivity(intent)
-//                        finish()
+                        Toast.makeText(this, " " + p2.text + " Move First", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, Gameplay::class.java)
+                        intent.putExtra("Player1", p1.text.toString())
+                        intent.putExtra("Player2", p2.text.toString())
+                        intent.putExtra("Player", 1)
+                        startActivity(intent)
                     }
                 }
             })

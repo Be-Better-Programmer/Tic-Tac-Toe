@@ -3,11 +3,15 @@
     <color name="colorPrimary">#0096C5</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="Light_Red">#F09891</color>
+    <color name="holo_red_dark">#FA1302</color>
+    <color name="primary">#0096C5</color>
+    <color name="secondary">#4DD5FF</color>
+    <color name="white">#FFFFFF</color>
     <color name="btnPlay">#bdffde</color>
     <color name="btnQuit">#ffcccc</color>
     <color name="colorSecondary">#50E3C2</color>
     <color name="buttonStartColor">#91edd9</color>
     <color name="buttonEndColor">#4dd5ff</color>
-    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 </resources>
