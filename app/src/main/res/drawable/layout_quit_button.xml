@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/btnQuit"/>
-            <stroke android:color="#c70000" android:width="4dp" />
-            <corners android:radius="9dp" />
+            <solid android:color="#e60000" />
+            <corners android:radius="8dp" />
         </shape>
     </item>
-</selector>
+    <item
+        android:bottom="4dp"
+        android:left="4dp"
+        android:right="4dp"
+        android:top="4dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp" />
+            <solid android:color="@color/btnQuit" />
+        </shape>
+    </item>
+</layer-list>

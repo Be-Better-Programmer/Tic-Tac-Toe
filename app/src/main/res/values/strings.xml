@@ -1,14 +1,17 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
     <string name="app_tag_name">master piece</string>
-    <string name="app_design_By_name">Designed @ bebetterprogrammer.com v1.0</string>
+    <string name="app_design_By_name">Designed @ bebetterprogrammer.com | </string>
     <string name="you">YOU</string>
     <string name="jarvis">JARVIS</string>
     <string name="vs">vs</string>
     <string name="friend">FRIEND</string>
+    <string name="rematch">Rematch</string>
+    <string name="quit">Quit</string>
     <string name="player_name">Player Name</string>
     <string name="play_button">PLAY</string>
     <string name="quit_button">QUIT</string>
     <string name="circle_hint_text">Player-O</string>
     <string name="cross_hint_text">Player-X</string>
+    <string name="who_will_move_first">Who will move first?</string>
 </resources>
