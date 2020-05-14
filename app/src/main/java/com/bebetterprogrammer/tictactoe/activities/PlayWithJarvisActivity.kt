@@ -1,13 +1,11 @@
 package com.bebetterprogrammer.tictactoe.activities
 
-import androidx.appcompat.app.AppCompatActivity
-import com.bebetterprogrammer.tictactoe.R
-import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
+import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_play_with_friend.*
 
 class PlayWithJarvisActivity : AppCompatActivity() {
@@ -15,9 +13,9 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_with_jarvis)
 
-        var flag:Int = 0
-        var flag1:Int = 0
-        var flag2:Int = 0
+        var flag: Int = 0
+        var flag1: Int = 0
+        var flag2: Int = 0
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
 
@@ -41,7 +39,7 @@ class PlayWithJarvisActivity : AppCompatActivity() {
             low.setBackgroundResource(R.drawable.layout_difficulty_button_secondary)
             medium.setBackgroundResource(R.drawable.layout_difficulty_button)
             high.setBackgroundResource(R.drawable.layout_difficulty_button)
-            flag = 0;
+            flag = 0
         })
         medium.setOnClickListener(View.OnClickListener {
             low.setBackgroundResource(R.drawable.layout_difficulty_button)
@@ -85,7 +83,7 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         })
     }
     fun moveFirst(flag: Int, flag1: Int, flag2: Int) {
-        Toast.makeText(this," "+flag+" "+flag1+" "+flag2,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, " " + flag + " " + flag1 + " " + flag2, Toast.LENGTH_SHORT).show()
 //        val intent = Intent(this@PlayWithJarvisActivity, ::class.java).apply {
 //            putExtra("Flag", flag)
 //            putExtra("Flag1", flag)
