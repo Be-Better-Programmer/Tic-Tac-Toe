@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activities.PlayWithJarvisActivity"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="@dimen/setting_button_margin"
+        android:layout_marginEnd="@dimen/setting_button_margin"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            fontPath="font/Righteous-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/righteous"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_icon_size" />
+
+        <TextView
+            fontPath="font/SnellRoundhand.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/snell_round_hand"
+            android:text="@string/app_tag_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_tag_name_size"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/linear2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appName">
+
+        <TextView
+            android:id="@+id/circle_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:text="@string/difficulty_level"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_gravity="center|center_horizontal">
+
+            <Button
+                android:id="@+id/diff_low"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/player_edit_text_top_margin"
+                android:layout_marginRight="10dp"
+                android:text="@string/difficulty_low"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/layout_difficulty_button"/>
+
+            <Button
+                android:id="@+id/diff_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/player_edit_text_top_margin"
+                android:layout_marginRight="10dp"
+                android:text="@string/difficulty_medium"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/layout_difficulty_button"/>
+
+            <Button
+                android:id="@+id/diff_high"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/player_edit_text_top_margin"
+                android:text="@string/difficulty_high"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/layout_difficulty_button"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cross_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/option_choice"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/wepon_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_circle_white" />
+
+            <ImageButton
+                android:id="@+id/wepon_cross"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_cross_white" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/choice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/who_will_move_first"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/default_text_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/circle_move"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_circle_white" />
+
+            <ImageButton
+                android:id="@+id/cross_move"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_cross_white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/default_button_margin"
+            android:layout_marginTop="@dimen/play_button_top_margin"
+            android:layout_marginEnd="@dimen/default_button_margin"
+            android:background="@drawable/layout_play_button"
+            android:text="@string/play_button"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/button_text_size" />
+
+        <Button
+            android:id="@+id/quit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/default_button_margin"
+            android:layout_marginTop="@dimen/quit_button_top_margin"
+            android:layout_marginEnd="@dimen/default_button_margin"
+            android:background="@drawable/layout_quit_button"
+            android:text="@string/quit_button"
+            android:textColor="#e60000"
+            android:textSize="@dimen/button_text_size" />
+
+        <TextView
+            android:id="@+id/appBottomLine"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="bottom"
+            android:text="@string/app_design_By_name"
+            android:textSize="@dimen/app_design_by_text_size" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
