@@ -148,7 +148,7 @@ class VsJarvis : AppCompatActivity() {
         }
         Handler().postDelayed({ alertDialog.show() }, 800)
         dialogView.btnRematch.setOnClickListener {
-            reset(v)
+            reset()
             alertDialog.dismiss()
         }
 
@@ -158,7 +158,7 @@ class VsJarvis : AppCompatActivity() {
         }
     }
 
-    private fun reset(view: View) {
+    private fun reset() {
         for (i in 0..8) {
             gameState[i] = 2
         }
@@ -183,30 +183,32 @@ class VsJarvis : AppCompatActivity() {
         val Weapon = intent.getIntExtra("Flag1", 0)
         val WhichFirst = intent.getIntExtra("Flag2", 0)
         val WhichLevel = intent.getIntExtra("Flag", 0)
-        player.text = "YOU"
-        if (WhichFirst == 0) {
-            first = 0 // O
-        } else if (WhichFirst == 1) {
-            first = 1 // X
-        }
-        if (Weapon == 0) {
-            turn = 0 // your O
-            pl = 0
-        } else if (Weapon == 1) {
-            turn = 1 // your X
-            pl = 1
-        }
-        if (turn != first) {
-            if (turn == 0) {
-                turn = 1
-            } else {
-                turn = 0
+        if (WhichLevel == 0 || WhichLevel == 1 || WhichLevel == 2) {
+            player.text = "YOU"
+            if (WhichFirst == 0) {
+                first = 0 // O
+            } else if (WhichFirst == 1) {
+                first = 1 // X
             }
-            putnew(getRandom())  // for jarvis
+            if (Weapon == 0) {
+                turn = 0 // your O
+                pl = 0
+            } else if (Weapon == 1) {
+                turn = 1 // your X
+                pl = 1
+            }
+            if (turn != first) {
+                if (turn == 0) {
+                    turn = 1
+                } else {
+                    turn = 0
+                }
+                putnew(getRandom())  // for jarvis
+            }
         }
         quit.setOnClickListener {
-            val intent = Intent(this, HomePageActivity::class.java)
-            startActivity(intent)
+            val intentq = Intent(this, HomePageActivity::class.java)
+            startActivity(intentq)
         }
     }
 }

@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_play_with_friend.*
@@ -30,17 +32,17 @@ class PlayWithFriendActivity : AppCompatActivity() {
         val circle = findViewById<ImageButton>(R.id.circle)
         val cross = findViewById<ImageButton>(R.id.cross)
 
-        circle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
+        circle.setImageResource(R.drawable.ic_circle_secondary)
 
         circle.setOnClickListener(View.OnClickListener {
-            cross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_white))
-            circle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
+            cross.setImageResource(R.drawable.ic_cross_white)
+            circle.setImageResource(R.drawable.ic_circle_secondary)
             flag = 0
         })
 
         cross.setOnClickListener(View.OnClickListener {
-            circle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_white))
-            cross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_secondary))
+            circle.setImageResource(R.drawable.ic_circle_white)
+            cross.setImageResource(R.drawable.ic_cross_secondary)
             flag = 1
         })
 

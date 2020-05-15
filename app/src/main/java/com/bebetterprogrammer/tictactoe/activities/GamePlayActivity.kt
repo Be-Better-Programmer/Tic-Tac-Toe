@@ -40,9 +40,8 @@ class GamePlayActivity : AppCompatActivity() {
 
     fun PlayerClick(view: View) {
         val img = view as ImageView
-        val tappedImage = img.getTag().toString().toInt()
+        val tappedImage = img.tag.toString().toInt()
         if (gameState[tappedImage] == 2 && !iswon && !istie) {
-            val tappedImage = img.tag.toString().toInt()
             if (gameState[tappedImage] == 2 && won == 0) {
                 gameState[tappedImage] = turn
                 if (turn == 0) {
@@ -83,7 +82,7 @@ class GamePlayActivity : AppCompatActivity() {
         alertDialog.show()
 
         dialogView.btnRematch.setOnClickListener {
-            reset(v)
+            reset()
             alertDialog.dismiss()
         }
 
@@ -93,7 +92,7 @@ class GamePlayActivity : AppCompatActivity() {
         }
     }
 
-    private fun reset(view: View) {
+    private fun reset() {
         for (i in 0..8) {
             gameState[i] = 2
         }
@@ -113,8 +112,8 @@ class GamePlayActivity : AppCompatActivity() {
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
         val intent = intent
-        P1 = intent.getStringExtra("Player1")
-        P2 = intent.getStringExtra("Player2")
+        P1 = intent.getStringExtra("Player1".toString())
+        P2 = intent.getStringExtra("Player2".toString())
         val Player = intent.getIntExtra("Player", 0)
         Player1.text = P1
         Player2.text = P2
@@ -128,8 +127,8 @@ class GamePlayActivity : AppCompatActivity() {
             pl = 1
         }
         quit.setOnClickListener {
-            val intent = Intent(this, HomePageActivity::class.java)
-            startActivity(intent)
+            val intentx = Intent(this, HomePageActivity::class.java)
+            startActivity(intentx)
         }
     }
 }
