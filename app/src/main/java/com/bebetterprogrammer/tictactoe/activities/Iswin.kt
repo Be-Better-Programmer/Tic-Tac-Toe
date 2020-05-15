@@ -1,15 +1,8 @@
 package com.bebetterprogrammer.tictactoe.activities
 
-import android.app.AlertDialog
-import android.content.Context
-import android.content.Intent
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_gameplay.*
-import kotlinx.android.synthetic.main.result_dialog.view.*
 
 class Iswin {
     var winPosition = arrayOf(

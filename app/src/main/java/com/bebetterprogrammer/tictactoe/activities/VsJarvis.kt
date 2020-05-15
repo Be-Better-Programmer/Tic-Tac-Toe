@@ -11,11 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
-import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.activity_gameplay.quit
 import kotlinx.android.synthetic.main.activity_vs_jarvis.*
-import kotlinx.android.synthetic.main.result_dialog.*
 import kotlinx.android.synthetic.main.result_dialog.view.*
 import kotlin.random.Random
 import kotlin.random.nextInt
