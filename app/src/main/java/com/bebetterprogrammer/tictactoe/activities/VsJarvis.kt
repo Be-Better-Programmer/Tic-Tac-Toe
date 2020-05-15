@@ -11,12 +11,12 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
+import kotlin.random.Random
+import kotlin.random.nextInt
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.activity_gameplay.quit
 import kotlinx.android.synthetic.main.activity_vs_jarvis.*
 import kotlinx.android.synthetic.main.result_dialog.view.*
-import kotlin.random.Random
-import kotlin.random.nextInt
 
 class VsJarvis : AppCompatActivity() {
     var turn: Int = 0
@@ -203,7 +203,7 @@ class VsJarvis : AppCompatActivity() {
                 } else {
                     turn = 0
                 }
-                putnew(getRandom())  // for jarvis
+                putnew(getRandom())
             }
         }
         quit.setOnClickListener {
@@ -212,4 +212,3 @@ class VsJarvis : AppCompatActivity() {
         }
     }
 }
-
