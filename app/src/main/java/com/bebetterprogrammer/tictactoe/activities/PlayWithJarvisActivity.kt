@@ -57,23 +57,23 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         })
 
         wepcircle.setOnClickListener(View.OnClickListener {
-            wepcircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
-            wepcross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_white))
+            wepcircle.setImageResource(R.drawable.ic_circle_secondary)
+            wepcross.setImageResource(R.drawable.ic_cross_white)
             flag1 = 0
         })
         wepcross.setOnClickListener(View.OnClickListener {
-            wepcircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_white))
-            wepcross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_secondary))
+            wepcircle.setImageResource(R.drawable.ic_circle_white)
+            wepcross.setImageResource(R.drawable.ic_cross_secondary)
             flag1 = 1
         })
         movecircle.setOnClickListener(View.OnClickListener {
-            movecircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
-            movecross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_white))
+            movecircle.setImageResource(R.drawable.ic_circle_secondary)
+            movecross.setImageResource(R.drawable.ic_cross_white)
             flag2 = 0
         })
         movecross.setOnClickListener(View.OnClickListener {
-            movecircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_white))
-            movecross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_secondary))
+            movecircle.setImageResource(R.drawable.ic_circle_white)
+            movecross.setImageResource(R.drawable.ic_cross_secondary)
             flag2 = 1
         })
 
