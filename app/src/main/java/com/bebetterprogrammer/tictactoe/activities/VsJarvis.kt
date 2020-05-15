@@ -31,6 +31,7 @@ class VsJarvis : AppCompatActivity() {
     var list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).toMutableList()
     val obj = Whowin()
     var pl = 0
+    var hold = 1
 
     init {
         turn = 0
@@ -42,6 +43,7 @@ class VsJarvis : AppCompatActivity() {
         isclicked = 0
         r = 0
         free = 9
+        hold = 1
     }
 
     fun getRandom(): ImageView {
@@ -70,34 +72,38 @@ class VsJarvis : AppCompatActivity() {
     }
 
     fun PlayerClick(view: View) {
-        val img = view as ImageView
-        val tappedImage = img.getTag().toString().toInt()
-        if (gameState[tappedImage] == 2 && !iswon && !istie) {
-            gameState[tappedImage] = turn
-            list.remove(tappedImage + 1)
-            if (turn == 0) {
-                img.setImageResource(R.drawable.ic_circle_secondary)
-            } else if (turn == 1) {
-                img.setImageResource(R.drawable.ic_cross_yellow)
-            }
-            free--
-            img.animate().duration = 10
-            iswon = obj.iswin(this)
-            istie = obj.isTie(this)
-            if (!iswon && !istie) {
-                turn++
-                turn %= 2
-                putnew(getRandom())
-            }
-            if (iswon) {
-                openDialogBox(view)
-            } else if (istie) {
-                openDialogBox(view)
+        if (hold == 1) {
+            hold = 0
+            val img = view as ImageView
+            val tappedImage = img.getTag().toString().toInt()
+            if (gameState[tappedImage] == 2 && !iswon && !istie) {
+                gameState[tappedImage] = turn
+                list.remove(tappedImage + 1)
+                if (turn == 0) {
+                    img.setImageResource(R.drawable.ic_circle_secondary)
+                } else if (turn == 1) {
+                    img.setImageResource(R.drawable.ic_cross_yellow)
+                }
+                free--
+                img.animate().duration = 10
+                iswon = obj.iswin(this)
+                istie = obj.isTie(this)
+                if (!iswon && !istie) {
+                    turn++
+                    turn %= 2
+                    putnew(getRandom())
+                }
+                if (iswon) {
+                    openDialogBox(view)
+                } else if (istie) {
+                    openDialogBox(view)
+                }
             }
         }
     }
 
     fun putnew(o: ImageView) {
+        hold = 1
         if (turn == 0) {
             Handler().postDelayed({
                 o.setImageResource(R.drawable.ic_circle_secondary)
