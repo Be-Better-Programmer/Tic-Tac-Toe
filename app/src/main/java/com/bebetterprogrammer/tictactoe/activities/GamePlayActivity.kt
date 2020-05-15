@@ -111,9 +111,8 @@ class GamePlayActivity : AppCompatActivity() {
         setContentView(R.layout.activity_gameplay)
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
-        val intent = intent
-        P1 = intent.getStringExtra("Player1".toString())
-        P2 = intent.getStringExtra("Player2".toString())
+        P1 = intent.getStringExtra("Player1")
+        P2 = intent.getStringExtra("Player2")
         val Player = intent.getIntExtra("Player", 0)
         Player1.text = P1
         Player2.text = P2

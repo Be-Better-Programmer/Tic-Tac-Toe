@@ -34,8 +34,8 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         val quit = findViewById<Button>(R.id.quit)
 
         low.setBackgroundResource(R.drawable.layout_difficulty_button_secondary)
-        wepcircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
-        movecircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
+        wepcircle.setImageResource(R.drawable.ic_circle_secondary)
+        movecircle.setImageResource(R.drawable.ic_circle_secondary)
 
         low.setOnClickListener(View.OnClickListener {
             low.setBackgroundResource(R.drawable.layout_difficulty_button_secondary)
