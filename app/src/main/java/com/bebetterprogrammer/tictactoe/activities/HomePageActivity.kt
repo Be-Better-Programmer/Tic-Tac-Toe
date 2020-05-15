@@ -24,6 +24,8 @@ class HomePageActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             )
             toast.show()
+            val i = Intent(this, VsJarvis::class.java)
+            startActivity(i)
         }
         playWithFriend.setOnClickListener {
 

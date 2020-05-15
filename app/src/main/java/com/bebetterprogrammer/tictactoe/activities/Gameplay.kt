@@ -9,25 +9,27 @@ import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
-import kotlinx.android.synthetic.main.activity_home_page.*
 
 class Gameplay : AppCompatActivity() {
     var turn: Int = 0
     var first: Int = 0
     var gameState = arrayOf(2, 2, 2, 2, 2, 2, 2, 2, 2)
-
-    // 0 = O      1 = X     2 = blank
-    var winPosition = arrayOf(
-        arrayOf(0, 1, 2), arrayOf(3, 4, 5), arrayOf(6, 7, 8), arrayOf(0, 3, 6),
-        arrayOf(1, 4, 7), arrayOf(2, 5, 8), arrayOf(0, 4, 8), arrayOf(2, 4, 6)
-    )
     var won = 0
+    var iswon = false
+
+    init{
+    turn = 0
+    first = 0
+    gameState = arrayOf(2, 2, 2, 2, 2, 2, 2, 2, 2)
+    won = 0
+    iswon = false
+}
     fun PlayerClick(view: View) {
+
         val img = view as ImageView
         val tappedImage = img.getTag().toString().toInt()
-        if (gameState[tappedImage] == 2 && won == 0) {
+        if (gameState[tappedImage] == 2 && !iswon) {
             gameState[tappedImage] = turn
-            img.setTranslationY(-1000f)
             if (turn == 0) {
                 img.setImageResource(R.drawable.ic_circle_secondary)
             } else if (turn == 1) {
@@ -35,39 +37,20 @@ class Gameplay : AppCompatActivity() {
             }
             turn++
             turn %= 2
-            img.animate().translationYBy(1000f).setDuration(100)
+            img.animate().duration = 0
         }
-        for (winPosition in winPosition) {
-            if (gameState[winPosition[0]] == gameState[winPosition[1]] && gameState[winPosition[1]] == gameState[winPosition[2]] && gameState[winPosition[0]] != 2) {
-                // won
-                if (turn == 1) {
-                    if (won == 0) {
-                        won = 1
-                        var p1 = p1_winning.text.toString().toInt()
-                        p1++
-                        p1_winning.text = p1.toString()
-                        player1_trophy.setImageResource(R.drawable.ic_trophy_golden)
-                    }
-                } else {
-                    if (won == 0) {
-                        won = 1
-                        var p2 = p2_winning.text.toString().toInt()
-                        p2++
-                        p2_winning.text = p2.toString()
-                        player2_trophy.setImageResource(R.drawable.ic_trophy_golden)
-                    }
-                }
-            }
-        }
+        val obj = Iswin()
+        iswon = obj.iswin(this)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gameplay)
-
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
-
         val intent = getIntent()
         val P1 = intent.getStringExtra("Player1")
         val P2 = intent.getStringExtra("Player2")
