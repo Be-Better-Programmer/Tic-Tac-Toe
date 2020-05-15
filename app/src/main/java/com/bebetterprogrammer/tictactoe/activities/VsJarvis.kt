@@ -178,6 +178,7 @@ class VsJarvis : AppCompatActivity() {
         turn = pl
         istie = false
         list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).toMutableList()
+        hold = 1
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
