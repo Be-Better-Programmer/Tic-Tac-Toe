@@ -12,10 +12,8 @@ class Iswin {
     var p1 = 0
     var p2 = 0
 
-    fun iswin(ob:GamePlayActivity,view: View): Boolean {
-
+    fun iswin(ob: GamePlayActivity): Boolean {
         var x = false
-
         for (winPosition in winPosition) {
             if (ob.gameState[winPosition[0]] == ob.gameState[winPosition[1]] && ob.gameState[winPosition[1]] == ob.gameState[winPosition[2]] && ob.gameState[winPosition[0]] != 2) {
                 // won
@@ -34,31 +32,28 @@ class Iswin {
                         ob.p2_winning.text = p2.toString()
                     }
                 }
-                if(p1>p2) {
+                if (p1 > p2) {
                     ob.player1_trophy.setImageResource(R.drawable.ic_trophy_golden)
                     ob.player2_trophy.setImageResource(R.drawable.ic_trophy_grey)
-                }
-                else if(p2>p1) {
+                } else if (p2 > p1) {
                     ob.player2_trophy.setImageResource(R.drawable.ic_trophy_golden)
                     ob.player1_trophy.setImageResource(R.drawable.ic_trophy_grey)
-                }
-                else{
+                } else {
                     ob.player2_trophy.setImageResource(R.drawable.ic_trophy_grey)
                     ob.player1_trophy.setImageResource(R.drawable.ic_trophy_grey)
                 }
-                x=true
+                x = true
             }
         }
         return x
     }
 
-
-    fun isTie(ob:GamePlayActivity): Boolean{
-        for(i in 0..8){
-            if (ob.gameState[i] == 2){
+    fun isTie(ob: GamePlayActivity): Boolean {
+        for (i in 0..8) {
+            if (ob.gameState[i] == 2) {
                 return false
             }
-            if (ob.won == 1){
+            if (ob.won == 1) {
                 return false
             }
         }

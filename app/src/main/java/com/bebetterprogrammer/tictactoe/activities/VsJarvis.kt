@@ -28,7 +28,7 @@ class VsJarvis : AppCompatActivity() {
     var free = 9
     var isclicked = 0
     var r = 0
-    var list = listOf(1,2,3,4,5,6,7,8,9).toMutableList()
+    var list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).toMutableList()
     val obj = Whowin()
     var pl = 0
 
@@ -45,7 +45,7 @@ class VsJarvis : AppCompatActivity() {
     }
 
     fun getRandom(): ImageView {
-        r = list[Random.nextInt(0..list.size-1)]
+        r = list[Random.nextInt(0..list.size - 1)]
         isclicked = r - 1
         if (r == 1 && gameState[isclicked] == 2) {
             return bn1
@@ -65,8 +65,7 @@ class VsJarvis : AppCompatActivity() {
             return bn8
         } else if (r == 9 && gameState[isclicked] == 2) {
             return bn9
-        }
-        else
+        } else
             return getRandom()
     }
 
@@ -75,7 +74,7 @@ class VsJarvis : AppCompatActivity() {
         val tappedImage = img.getTag().toString().toInt()
         if (gameState[tappedImage] == 2 && !iswon && !istie) {
             gameState[tappedImage] = turn
-            list.remove(tappedImage+1)
+            list.remove(tappedImage + 1)
             if (turn == 0) {
                 img.setImageResource(R.drawable.ic_circle_secondary)
             } else if (turn == 1) {
@@ -85,15 +84,14 @@ class VsJarvis : AppCompatActivity() {
             img.animate().duration = 10
             iswon = obj.iswin(this)
             istie = obj.isTie(this)
-            if(!iswon && !istie) {
+            if (!iswon && !istie) {
                 turn++
                 turn %= 2
                 putnew(getRandom())  // for jarvis
             }
-            if(iswon){
+            if (iswon) {
                 openDialogBox(view)
-            }
-            else if(istie){
+            } else if (istie) {
                 openDialogBox(view)
             }
         }
@@ -102,28 +100,29 @@ class VsJarvis : AppCompatActivity() {
     fun putnew(o: ImageView) {
         if (turn == 0) {
             Handler().postDelayed({
-                o.setImageResource(R.drawable.ic_circle_secondary)},800)
+                o.setImageResource(R.drawable.ic_circle_secondary)
+            }, 800)
             gameState[isclicked] = turn
-            list.remove(isclicked+1)
+            list.remove(isclicked + 1)
         } else if (turn == 1) {
             Handler().postDelayed({
-                o.setImageResource(R.drawable.ic_cross_yellow)},800)
+                o.setImageResource(R.drawable.ic_cross_yellow)
+            }, 800)
             gameState[isclicked] = turn
-            list.remove(isclicked+1)
+            list.remove(isclicked + 1)
         }
         free--
         o.animate().duration = 0
 
         iswon = obj.iswin(this)
         istie = obj.isTie(this)
-        if(!iswon && !istie) {
+        if (!iswon && !istie) {
             turn++
             turn %= 2
         }
-        if(iswon){
+        if (iswon) {
             openDialogBox(o)
-        }
-        else if(istie){
+        } else if (istie) {
             openDialogBox(o)
         }
     }
@@ -132,24 +131,23 @@ class VsJarvis : AppCompatActivity() {
     private fun openDialogBox(v: View) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
         val viewGroup = findViewById<ViewGroup>(android.R.id.content)
-        val dialogView: View = LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
+        val dialogView: View =
+            LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
         builder.setView(dialogView)
         val alertDialog: AlertDialog = builder.create()
-        if(!istie) {
-            if(obj.playerWon == true) {
+        if (!istie) {
+            if (obj.playerWon == true) {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
                 dialogView.result.text = "Yeppii.. You Won!"
-            }
-            else{
+            } else {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_lost)
                 dialogView.result.text = "Ohh... You Lost!"
             }
-        }
-        else{
+        } else {
             dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
             dialogView.result.text = "That was a tie!"
         }
-        Handler().postDelayed({alertDialog.show()},800)
+        Handler().postDelayed({ alertDialog.show() }, 800)
 
 
         dialogView.btnRematch.setOnClickListener {
@@ -163,14 +161,15 @@ class VsJarvis : AppCompatActivity() {
         }
 
     }
-    private fun reset(view: View){
+
+    private fun reset(view: View) {
 
 
         for (i in 0..8) {
             gameState[i] = 2
         }
-        var q = listOf<ImageView>(bn1,bn2,bn3,bn4,bn5,bn6,bn7,bn8,bn9)
-        for (i:ImageView in q){
+        var q = listOf<ImageView>(bn1, bn2, bn3, bn4, bn5, bn6, bn7, bn8, bn9)
+        for (i: ImageView in q) {
             i.setImageResource(0)
         }
         obj.playerWon = false
@@ -178,7 +177,7 @@ class VsJarvis : AppCompatActivity() {
         iswon = false
         turn = pl
         istie = false
-        list = listOf(1,2,3,4,5,6,7,8,9).toMutableList()
+        list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).toMutableList()
     }
 
 
@@ -200,18 +199,20 @@ class VsJarvis : AppCompatActivity() {
         } else if (WhichFirst == 1) {
             first = 1 //X
         }
-        if(Weapon == 0){
+        if (Weapon == 0) {
             turn = 0 //your O
             pl = 0
-        }
-        else if(Weapon == 1){
+        } else if (Weapon == 1) {
             turn = 1 //your X
             pl = 1
         }
 
-        if(turn != first){
-            if(turn == 0){turn = 1}
-            else{turn = 0}
+        if (turn != first) {
+            if (turn == 0) {
+                turn = 1
+            } else {
+                turn = 0
+            }
             putnew(getRandom())  // for jarvis
         }
         quit.setOnClickListener {

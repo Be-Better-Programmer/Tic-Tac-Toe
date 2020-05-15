@@ -11,7 +11,7 @@ class Whowin {
         arrayOf(1, 4, 7), arrayOf(2, 5, 8), arrayOf(0, 4, 8), arrayOf(2, 4, 6)
     )
     var playerWon = false
-    fun iswin(ob:VsJarvis): Boolean {
+    fun iswin(ob: VsJarvis): Boolean {
 
         var x = false
         for (winPosition in winPosition) {
@@ -35,15 +35,13 @@ class Whowin {
 
                     }
                 }
-                if(p1>p2) {
+                if (p1 > p2) {
                     ob.player1_trophy.setImageResource(R.drawable.ic_trophy_golden)
                     ob.player2_trophy.setImageResource(R.drawable.ic_trophy_grey)
-                }
-                else if(p2>p1) {
+                } else if (p2 > p1) {
                     ob.player2_trophy.setImageResource(R.drawable.ic_trophy_golden)
                     ob.player1_trophy.setImageResource(R.drawable.ic_trophy_grey)
-                }
-                else{
+                } else {
                     ob.player2_trophy.setImageResource(R.drawable.ic_trophy_grey)
                     ob.player1_trophy.setImageResource(R.drawable.ic_trophy_grey)
                 }
@@ -52,13 +50,14 @@ class Whowin {
         }
         return x
     }
-    fun isTie(ob:VsJarvis): Boolean{
 
-        for(i in 0..8){
-            if (ob.gameState[i] == 2){
+    fun isTie(ob: VsJarvis): Boolean {
+
+        for (i in 0..8) {
+            if (ob.gameState[i] == 2) {
                 return false
             }
-            if (ob.won == 1){
+            if (ob.won == 1) {
                 return false
             }
         }

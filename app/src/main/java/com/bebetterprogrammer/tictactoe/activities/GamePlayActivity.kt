@@ -50,7 +50,7 @@ class GamePlayActivity : AppCompatActivity() {
                 } else if (turn == 1) {
                     img.setImageResource(R.drawable.ic_cross_yellow)
                 }
-                iswon = obj.iswin(this, view)
+                iswon = obj.iswin(this)
                 istie = obj.isTie(this)
                 if (iswon && turn == 1) {
                     openDialogBox(view, P2)
@@ -63,7 +63,6 @@ class GamePlayActivity : AppCompatActivity() {
                 turn %= 2
                 img.animate().duration = 0
             }
-
         }
     }
 
@@ -92,12 +91,9 @@ class GamePlayActivity : AppCompatActivity() {
             val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     private fun reset(view: View) {
-
-
         for (i in 0..8) {
             gameState[i] = 2
         }
@@ -109,7 +105,6 @@ class GamePlayActivity : AppCompatActivity() {
         iswon = false
         istie = false
         turn = pl
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,7 +112,6 @@ class GamePlayActivity : AppCompatActivity() {
         setContentView(R.layout.activity_gameplay)
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
-
         val intent = intent
         P1 = intent.getStringExtra("Player1")
         P2 = intent.getStringExtra("Player2")

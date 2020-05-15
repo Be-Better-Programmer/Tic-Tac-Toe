@@ -26,7 +26,6 @@ class HomePageActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             )
             toast.show()
-
         }
         playWithFriend.setOnClickListener {
 
