@@ -20,7 +20,6 @@
         android:layout_below="@+id/resultTrophy"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="Yeppii.. Jone Won!"
         android:textColor="@color/black"
         android:textSize="@dimen/default_text_size"
         android:textStyle="bold" />
