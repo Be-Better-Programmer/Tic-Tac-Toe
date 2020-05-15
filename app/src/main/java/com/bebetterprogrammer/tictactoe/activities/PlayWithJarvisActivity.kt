@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
@@ -92,6 +91,5 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         intent.putExtra("Flag1", flag1)
         intent.putExtra("Flag2", flag2)
         startActivity(intent)
-
     }
 }

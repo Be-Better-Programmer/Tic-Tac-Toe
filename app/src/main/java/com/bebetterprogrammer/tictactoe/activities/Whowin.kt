@@ -24,7 +24,6 @@ class Whowin {
                         p1 = ob.p1_winning.text.toString().toInt()
                         p1++
                         ob.p1_winning.text = p1.toString()
-
                     }
                 } else {
                     if (ob.won == 0) {
@@ -32,7 +31,6 @@ class Whowin {
                         p2 = ob.p2_winning.text.toString().toInt()
                         p2++
                         ob.p2_winning.text = p2.toString()
-
                     }
                 }
                 if (p1 > p2) {

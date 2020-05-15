@@ -2,13 +2,13 @@ package com.bebetterprogrammer.tictactoe.activities
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
@@ -87,7 +87,7 @@ class VsJarvis : AppCompatActivity() {
             if (!iswon && !istie) {
                 turn++
                 turn %= 2
-                putnew(getRandom())  // for jarvis
+                putnew(getRandom())
             }
             if (iswon) {
                 openDialogBox(view)
@@ -127,7 +127,6 @@ class VsJarvis : AppCompatActivity() {
         }
     }
 
-
     private fun openDialogBox(v: View) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
         val viewGroup = findViewById<ViewGroup>(android.R.id.content)
@@ -148,8 +147,6 @@ class VsJarvis : AppCompatActivity() {
             dialogView.result.text = "That was a tie!"
         }
         Handler().postDelayed({ alertDialog.show() }, 800)
-
-
         dialogView.btnRematch.setOnClickListener {
             reset(v)
             alertDialog.dismiss()
@@ -159,12 +156,9 @@ class VsJarvis : AppCompatActivity() {
             val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     private fun reset(view: View) {
-
-
         for (i in 0..8) {
             gameState[i] = 2
         }
@@ -180,33 +174,28 @@ class VsJarvis : AppCompatActivity() {
         list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9).toMutableList()
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vs_jarvis)
-
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
         val intent = getIntent()
         val Weapon = intent.getIntExtra("Flag1", 0)
         val WhichFirst = intent.getIntExtra("Flag2", 0)
         val WhichLevel = intent.getIntExtra("Flag", 0)
-
         player.text = "YOU"
-
         if (WhichFirst == 0) {
             first = 0 // O
         } else if (WhichFirst == 1) {
-            first = 1 //X
+            first = 1 // X
         }
         if (Weapon == 0) {
-            turn = 0 //your O
+            turn = 0 // your O
             pl = 0
         } else if (Weapon == 1) {
-            turn = 1 //your X
+            turn = 1 // your X
             pl = 1
         }
-
         if (turn != first) {
             if (turn == 0) {
                 turn = 1

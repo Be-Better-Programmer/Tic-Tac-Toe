@@ -1,6 +1,5 @@
 package com.bebetterprogrammer.tictactoe.activities
 
-import android.view.View
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_gameplay.*
 
