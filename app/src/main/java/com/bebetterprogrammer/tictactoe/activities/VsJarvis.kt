@@ -1,9 +1,13 @@
 package com.bebetterprogrammer.tictactoe.activities
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
@@ -11,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.activity_gameplay.quit
 import kotlinx.android.synthetic.main.activity_vs_jarvis.*
+import kotlinx.android.synthetic.main.result_dialog.*
+import kotlinx.android.synthetic.main.result_dialog.view.*
 import kotlin.random.Random
 import kotlin.random.nextInt
 
@@ -26,7 +32,7 @@ class VsJarvis : AppCompatActivity() {
     var r = 0
     var list = listOf(1,2,3,4,5,6,7,8,9).toMutableList()
     val obj = Whowin()
-
+    var pl = 0
 
     init {
         turn = 0
@@ -86,26 +92,97 @@ class VsJarvis : AppCompatActivity() {
                 turn %= 2
                 putnew(getRandom())  // for jarvis
             }
+            if(iswon){
+                openDialogBox(view)
+            }
+            else if(istie){
+                openDialogBox(view)
+            }
         }
     }
 
     fun putnew(o: ImageView) {
         if (turn == 0) {
-            o.setImageResource(R.drawable.ic_circle_secondary)
+            Handler().postDelayed({
+                o.setImageResource(R.drawable.ic_circle_secondary)},800)
             gameState[isclicked] = turn
+            list.remove(isclicked+1)
         } else if (turn == 1) {
-            o.setImageResource(R.drawable.ic_cross_yellow)
+            Handler().postDelayed({
+                o.setImageResource(R.drawable.ic_cross_yellow)},800)
             gameState[isclicked] = turn
+            list.remove(isclicked+1)
         }
         free--
-        o.animate().duration = 10
+        o.animate().duration = 0
+
         iswon = obj.iswin(this)
         istie = obj.isTie(this)
         if(!iswon && !istie) {
             turn++
             turn %= 2
         }
+        if(iswon){
+            openDialogBox(o)
+        }
+        else if(istie){
+            openDialogBox(o)
+        }
     }
+
+
+    private fun openDialogBox(v: View) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
+        val viewGroup = findViewById<ViewGroup>(android.R.id.content)
+        val dialogView: View = LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
+        builder.setView(dialogView)
+        val alertDialog: AlertDialog = builder.create()
+        if(!istie) {
+            if(obj.playerWon == true) {
+                dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
+                dialogView.result.text = "Yeppii.. You Won!"
+            }
+            else{
+                dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_lost)
+                dialogView.result.text = "Ohh... You Lost!"
+            }
+        }
+        else{
+            dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
+            dialogView.result.text = "That was a tie!"
+        }
+        Handler().postDelayed({alertDialog.show()},800)
+
+
+        dialogView.btnRematch.setOnClickListener {
+            reset(v)
+            alertDialog.dismiss()
+        }
+
+        dialogView.btnQuit.setOnClickListener {
+            val intent = Intent(this, HomePageActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+    private fun reset(view: View){
+
+
+        for (i in 0..8) {
+            gameState[i] = 2
+        }
+        var q = listOf<ImageView>(bn1,bn2,bn3,bn4,bn5,bn6,bn7,bn8,bn9)
+        for (i:ImageView in q){
+            i.setImageResource(0)
+        }
+        obj.playerWon = false
+        won = 0
+        iswon = false
+        turn = pl
+        istie = false
+        list = listOf(1,2,3,4,5,6,7,8,9).toMutableList()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,19 +190,31 @@ class VsJarvis : AppCompatActivity() {
 
         val versionName = BuildConfig.VERSION_NAME
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
-//        val intent = getIntent()
-//        val P1 = intent.getStringExtra("Player1")
+        val intent = getIntent()
+        val Weapon = intent.getIntExtra("Flag1", 0)
+        val WhichFirst = intent.getIntExtra("Flag2", 0)
+        val WhichLevel = intent.getIntExtra("Flag", 0)
 
-//        val Player = intent.getIntExtra("Player", 0)
-//        player.text = P1
-        player.text = "JONE"
-        val Player = 0
-        if (Player == 0) {
-            first = 0
-            turn = 0
-        } else if (Player == 1) {
-            turn = 1
-            first = 1
+        player.text = "YOU"
+
+        if (WhichFirst == 0) {
+            first = 0 // O
+        } else if (WhichFirst == 1) {
+            first = 1 //X
+        }
+        if(Weapon == 0){
+            turn = 0 //your O
+            pl = 0
+        }
+        else if(Weapon == 1){
+            turn = 1 //your X
+            pl = 1
+        }
+
+        if(turn != first){
+            if(turn == 0){turn = 1}
+            else{turn = 0}
+            putnew(getRandom())  // for jarvis
         }
         quit.setOnClickListener {
             val intent = Intent(this, HomePageActivity::class.java)

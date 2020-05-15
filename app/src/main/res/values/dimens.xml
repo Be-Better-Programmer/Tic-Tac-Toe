@@ -16,9 +16,9 @@
     <dimen name="circle_cross_top_margin">10sp</dimen>
     <dimen name="circle_left_margin">150sp</dimen>
     <dimen name="cross_left_margin">50sp</dimen>
-    <dimen name="play_button_top_margin">40sp</dimen>
+    <dimen name="play_button_top_margin">30sp</dimen>
     <dimen name="quit_button_top_margin">20sp</dimen>
-    <dimen name="app_design_by_top_margin">20sp</dimen>
+    <dimen name="app_design_by_top_margin">10sp</dimen>
     <dimen name="default_text_size">22dp</dimen>
-    <dimen name="player_name_text_size">28dp</dimen>
+    <dimen name="player_name_text_size">18dp</dimen>
 </resources>

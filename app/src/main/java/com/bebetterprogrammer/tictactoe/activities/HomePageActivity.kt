@@ -18,14 +18,15 @@ class HomePageActivity : AppCompatActivity() {
 
         playWithJarvis.setOnClickListener {
 
+            val i1 = Intent(this, PlayWithJarvisActivity::class.java)
+            startActivity(i1)
             val toast = Toast.makeText(
                 applicationContext,
                 "Play with JARVIS😀",
                 Toast.LENGTH_SHORT
             )
             toast.show()
-            val i = Intent(this, VsJarvis::class.java)
-            startActivity(i)
+
         }
         playWithFriend.setOnClickListener {
 
