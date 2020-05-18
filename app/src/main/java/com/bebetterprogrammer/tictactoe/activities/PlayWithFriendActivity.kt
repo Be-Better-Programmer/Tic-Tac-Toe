@@ -54,21 +54,18 @@ class PlayWithFriendActivity : AppCompatActivity() {
                     Toast.makeText(this, "Enter Player_2 Name", Toast.LENGTH_SHORT).show()
                 }
             } else {
+                val intent = Intent(this, GamePlayActivity::class.java)
+                intent.putExtra("Player1", p1.text.toString())
+                intent.putExtra("Player2", p2.text.toString())
+                intent.putExtra("vsWhom", 0) // Vs Friend
                 if (flag == 0) {
                     Toast.makeText(this, " " + p1.text + " Move First", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, GamePlayActivity::class.java)
-                    intent.putExtra("Player1", p1.text.toString())
-                    intent.putExtra("Player2", p2.text.toString())
-                    intent.putExtra("Player", 0)
-                    startActivity(intent)
+                    intent.putExtra("Player", 0) // O will move first
                 } else if (flag == 1) {
                     Toast.makeText(this, " " + p2.text + " Move First", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, GamePlayActivity::class.java)
-                    intent.putExtra("Player1", p1.text.toString())
-                    intent.putExtra("Player2", p2.text.toString())
-                    intent.putExtra("Player", 1)
-                    startActivity(intent)
+                    intent.putExtra("Player", 1) // X will move first
                 }
+                startActivity(intent)
             }
         })
         var btnQuit = findViewById(R.id.quit) as Button
