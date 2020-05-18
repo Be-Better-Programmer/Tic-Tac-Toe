@@ -13,13 +13,13 @@ import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import com.bebetterprogrammer.tictactoe.utils.GamePlayUtility
 import com.bebetterprogrammer.tictactoe.utils.Result
+import kotlin.properties.Delegates
+import kotlin.random.Random
+import kotlin.random.nextInt
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.activity_gameplay.quit
 import kotlinx.android.synthetic.main.result_dialog.view.*
-import kotlin.properties.Delegates
-import kotlin.random.Random
-import kotlin.random.nextInt
 
 class GamePlayActivity : AppCompatActivity() {
     var turn: Int = 0
