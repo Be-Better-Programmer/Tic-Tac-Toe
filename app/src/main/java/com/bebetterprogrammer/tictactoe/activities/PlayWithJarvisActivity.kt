@@ -1,10 +1,10 @@
 package com.bebetterprogrammer.tictactoe.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
@@ -25,17 +25,17 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         val medium = findViewById<Button>(R.id.diff_medium)
         val high = findViewById<Button>(R.id.diff_high)
 
-        val wepcircle = findViewById<ImageButton>(R.id.wepon_circle)
-        val wepcross = findViewById<ImageButton>(R.id.wepon_cross)
-        val movecircle = findViewById<ImageButton>(R.id.circle_move)
-        val movecross = findViewById<ImageButton>(R.id.cross_move)
+        val wepCircle = findViewById<ImageButton>(R.id.wepon_circle)
+        val wepCross = findViewById<ImageButton>(R.id.wepon_cross)
+        val moveCircle = findViewById<ImageButton>(R.id.circle_move)
+        val moveCross = findViewById<ImageButton>(R.id.cross_move)
 
         val play = findViewById<Button>(R.id.play)
         val quit = findViewById<Button>(R.id.quit)
 
         low.setBackgroundResource(R.drawable.layout_difficulty_button_secondary)
-        wepcircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
-        movecircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
+        wepCircle.setImageResource(R.drawable.ic_circle_secondary)
+        moveCircle.setImageResource(R.drawable.ic_circle_secondary)
 
         low.setOnClickListener(View.OnClickListener {
             low.setBackgroundResource(R.drawable.layout_difficulty_button_secondary)
@@ -56,24 +56,24 @@ class PlayWithJarvisActivity : AppCompatActivity() {
             flag = 2
         })
 
-        wepcircle.setOnClickListener(View.OnClickListener {
-            wepcircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
-            wepcross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_white))
+        wepCircle.setOnClickListener(View.OnClickListener {
+            wepCircle.setImageResource(R.drawable.ic_circle_secondary)
+            wepCross.setImageResource(R.drawable.ic_cross_white)
             flag1 = 0
         })
-        wepcross.setOnClickListener(View.OnClickListener {
-            wepcircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_white))
-            wepcross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_secondary))
+        wepCross.setOnClickListener(View.OnClickListener {
+            wepCircle.setImageResource(R.drawable.ic_circle_white)
+            wepCross.setImageResource(R.drawable.ic_cross_secondary)
             flag1 = 1
         })
-        movecircle.setOnClickListener(View.OnClickListener {
-            movecircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_secondary))
-            movecross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_white))
+        moveCircle.setOnClickListener(View.OnClickListener {
+            moveCircle.setImageResource(R.drawable.ic_circle_secondary)
+            moveCross.setImageResource(R.drawable.ic_cross_white)
             flag2 = 0
         })
-        movecross.setOnClickListener(View.OnClickListener {
-            movecircle.setImageDrawable(resources.getDrawable(R.drawable.ic_circle_white))
-            movecross.setImageDrawable(resources.getDrawable(R.drawable.ic_cross_secondary))
+        moveCross.setOnClickListener(View.OnClickListener {
+            moveCircle.setImageResource(R.drawable.ic_circle_white)
+            moveCross.setImageResource(R.drawable.ic_cross_secondary)
             flag2 = 1
         })
 
@@ -84,12 +84,13 @@ class PlayWithJarvisActivity : AppCompatActivity() {
             finish()
         })
     }
-    fun moveFirst(flag: Int, flag1: Int, flag2: Int) {
-        Toast.makeText(this, " " + flag + " " + flag1 + " " + flag2, Toast.LENGTH_SHORT).show()
-//        val intent = Intent(this@PlayWithJarvisActivity, ::class.java).apply {
-//            putExtra("Flag", flag)
-//            putExtra("Flag1", flag)
-//            putExtra("Flag2", flag)
-//            startActivity(intent)
+
+    private fun moveFirst(flag: Int, flag1: Int, flag2: Int) {
+        val intent = Intent(this, GamePlayActivity::class.java)
+        intent.putExtra("Flag", flag) // flag for difficulty level
+        intent.putExtra("Flag1", flag1) // Player Weapon
+        intent.putExtra("Flag2", flag2) // Who will move first
+        intent.putExtra("vsWhom", 1) // Vs Jarvis
+        startActivity(intent)
     }
 }
