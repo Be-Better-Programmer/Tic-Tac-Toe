@@ -25,7 +25,7 @@ class PlayWithFriendActivity : AppCompatActivity() {
         var flag: Int = 0
         val p1 = findViewById<EditText>(R.id.player_one)
         val p2 = findViewById<EditText>(R.id.player_two)
-        val btnPlay = findViewById<Button>(R.id.play)
+//        val btnPlay = findViewById<Button>(R.id.btnPlay) // Why use this?
 
         val circle = findViewById<ImageButton>(R.id.circle)
         val cross = findViewById<ImageButton>(R.id.cross)
@@ -71,7 +71,7 @@ class PlayWithFriendActivity : AppCompatActivity() {
                 }
             }
         })
-        var btnQuit = findViewById(R.id.quit) as Button
+//        var btnQuit = findViewById(R.id.btnQuit) as Button
         btnQuit.setOnClickListener(View.OnClickListener {
             finish()
         })
