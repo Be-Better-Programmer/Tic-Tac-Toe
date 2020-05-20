@@ -32,12 +32,12 @@ class GamePlayActivity : AppCompatActivity() {
     var player by Delegates.notNull<Int>()
     var vsWhom by Delegates.notNull<Int>()
     var weapon by Delegates.notNull<Int>()
+    var jarvis by Delegates.notNull<Int>()
     var whichFirst by Delegates.notNull<Int>()
     var whichLevel by Delegates.notNull<Int>()
 
     // 0 = O      1 = X     2 = blank
     private val obj = GamePlayUtility()
-    var r = 0
     var list = listOf(0, 1, 2, 3, 4, 5, 6, 7, 8).toMutableList()
     var isclicked = 0
 
@@ -110,7 +110,110 @@ class GamePlayActivity : AppCompatActivity() {
     }
 
     private fun getRandom(): ImageView {
-        r = list[Random.nextInt(0..list.size - 1)]
+        var r = list[Random.nextInt(0..list.size - 1)]
+        if (whichLevel == 0 || whichLevel == 2) {
+            r = list[Random.nextInt(0..list.size - 1)]
+        } else if (whichLevel == 1) {
+            if (!list.contains(0) && !list.contains(1) && list.contains(2) && (gameState[0] == jarvis && gameState[1] == jarvis)) {
+                r = 2
+            } else if (!list.contains(5) && !list.contains(8) && list.contains(2) && (gameState[5] == jarvis && gameState[8] == jarvis)) {
+                r = 2
+            } else if (!list.contains(4) && !list.contains(6) && list.contains(2) && (gameState[4] == jarvis && gameState[6] == jarvis)) {
+                r = 2
+            } else if (!list.contains(1) && !list.contains(2) && list.contains(0) && (gameState[1] == jarvis && gameState[2] == jarvis)) {
+                r = 0
+            } else if (!list.contains(3) && !list.contains(6) && list.contains(0) && (gameState[3] == jarvis && gameState[6] == jarvis)) {
+                r = 0
+            } else if (!list.contains(4) && !list.contains(8) && list.contains(0) && (gameState[4] == jarvis && gameState[8] == jarvis)) {
+                r = 0
+            } else if (!list.contains(0) && !list.contains(2) && list.contains(1) && (gameState[0] == jarvis && gameState[2] == jarvis)) {
+                r = 1
+            } else if (!list.contains(4) && !list.contains(7) && list.contains(1) && (gameState[4] == jarvis && gameState[7] == jarvis)) {
+                r = 1
+            } else if (!list.contains(3) && !list.contains(4) && list.contains(5) && (gameState[3] == jarvis && gameState[4] == jarvis)) {
+                r = 5
+            } else if (!list.contains(2) && !list.contains(8) && list.contains(5) && (gameState[2] == jarvis && gameState[8] == jarvis)) {
+                r = 5
+            } else if (!list.contains(4) && !list.contains(5) && list.contains(3) && (gameState[4] == jarvis && gameState[5] == jarvis)) {
+                r = 3
+            } else if (!list.contains(0) && !list.contains(6) && list.contains(3) && (gameState[0] == jarvis && gameState[6] == jarvis)) {
+                r = 3
+            } else if (!list.contains(3) && !list.contains(5) && list.contains(4) && (gameState[3] == jarvis && gameState[5] == jarvis)) {
+                r = 4
+            } else if (!list.contains(1) && !list.contains(7) && list.contains(4) && (gameState[1] == jarvis && gameState[7] == jarvis)) {
+                r = 4
+            } else if (!list.contains(0) && !list.contains(8) && list.contains(4) && (gameState[0] == jarvis && gameState[8] == jarvis)) {
+                r = 4
+            } else if (!list.contains(2) && !list.contains(6) && list.contains(4) && (gameState[2] == jarvis && gameState[6] == jarvis)) {
+                r = 4
+            } else if (!list.contains(6) && !list.contains(7) && list.contains(8) && (gameState[6] == jarvis && gameState[7] == jarvis)) {
+                r = 8
+            } else if (!list.contains(2) && !list.contains(5) && list.contains(8) && (gameState[2] == jarvis && gameState[5] == jarvis)) {
+                r = 8
+            } else if (!list.contains(7) && !list.contains(8) && list.contains(6) && (gameState[7] == jarvis && gameState[8] == jarvis)) {
+                r = 6
+            } else if (!list.contains(0) && !list.contains(3) && list.contains(6) && (gameState[0] == jarvis && gameState[3] == jarvis)) {
+                r = 6
+            } else if (!list.contains(2) && !list.contains(4) && list.contains(6) && (gameState[2] == jarvis && gameState[4] == jarvis)) {
+                r = 6
+            } else if (!list.contains(6) && !list.contains(8) && list.contains(7) && (gameState[6] == jarvis && gameState[8] == jarvis)) {
+                r = 7
+            } else if (!list.contains(1) && !list.contains(4) && list.contains(7) && (gameState[1] == jarvis && gameState[4] == jarvis)) {
+                r = 7
+            } else if (!list.contains(0) && !list.contains(4) && list.contains(8) && (gameState[0] == jarvis && gameState[4] == jarvis)) {
+                r = 8
+            } else if (!list.contains(0) && !list.contains(1) && list.contains(2) && (gameState[0] == weapon && gameState[1] == weapon)) {
+                r = 2
+            } else if (!list.contains(5) && !list.contains(8) && list.contains(2) && (gameState[5] == weapon && gameState[8] == weapon)) {
+                r = 2
+            } else if (!list.contains(4) && !list.contains(6) && list.contains(2) && (gameState[4] == weapon && gameState[6] == weapon)) {
+                r = 2
+            } else if (!list.contains(1) && !list.contains(2) && list.contains(0) && (gameState[1] == weapon && gameState[2] == weapon)) {
+                r = 0
+            } else if (!list.contains(3) && !list.contains(6) && list.contains(0) && (gameState[3] == weapon && gameState[6] == weapon)) {
+                r = 0
+            } else if (!list.contains(4) && !list.contains(8) && list.contains(0) && (gameState[4] == weapon && gameState[8] == weapon)) {
+                r = 0
+            } else if (!list.contains(0) && !list.contains(2) && list.contains(1) && (gameState[0] == weapon && gameState[2] == weapon)) {
+                r = 1
+            } else if (!list.contains(4) && !list.contains(7) && list.contains(1) && (gameState[4] == weapon && gameState[7] == weapon)) {
+                r = 1
+            } else if (!list.contains(3) && !list.contains(4) && list.contains(5) && (gameState[3] == weapon && gameState[4] == weapon)) {
+                r = 5
+            } else if (!list.contains(2) && !list.contains(8) && list.contains(5) && (gameState[2] == weapon && gameState[8] == weapon)) {
+                r = 5
+            } else if (!list.contains(4) && !list.contains(5) && list.contains(3) && (gameState[4] == weapon && gameState[5] == weapon)) {
+                r = 3
+            } else if (!list.contains(0) && !list.contains(6) && list.contains(3) && (gameState[0] == weapon && gameState[6] == weapon)) {
+                r = 3
+            } else if (!list.contains(3) && !list.contains(5) && list.contains(4) && (gameState[3] == weapon && gameState[5] == weapon)) {
+                r = 4
+            } else if (!list.contains(1) && !list.contains(7) && list.contains(4) && (gameState[1] == weapon && gameState[7] == weapon)) {
+                r = 4
+            } else if (!list.contains(0) && !list.contains(8) && list.contains(4) && (gameState[0] == weapon && gameState[8] == weapon)) {
+                r = 4
+            } else if (!list.contains(2) && !list.contains(6) && list.contains(4) && (gameState[2] == weapon && gameState[6] == weapon)) {
+                r = 4
+            } else if (!list.contains(6) && !list.contains(7) && list.contains(8) && (gameState[6] == weapon && gameState[7] == weapon)) {
+                r = 8
+            } else if (!list.contains(2) && !list.contains(5) && list.contains(8) && (gameState[2] == weapon && gameState[5] == weapon)) {
+                r = 8
+            } else if (!list.contains(7) && !list.contains(8) && list.contains(6) && (gameState[7] == weapon && gameState[8] == weapon)) {
+                r = 6
+            } else if (!list.contains(0) && !list.contains(3) && list.contains(6) && (gameState[0] == weapon && gameState[3] == weapon)) {
+                r = 6
+            } else if (!list.contains(2) && !list.contains(4) && list.contains(6) && (gameState[2] == weapon && gameState[4] == weapon)) {
+                r = 6
+            } else if (!list.contains(6) && !list.contains(8) && list.contains(7) && (gameState[6] == weapon && gameState[8] == weapon)) {
+                r = 7
+            } else if (!list.contains(1) && !list.contains(4) && list.contains(7) && (gameState[1] == weapon && gameState[4] == weapon)) {
+                r = 7
+            } else if (!list.contains(0) && !list.contains(4) && list.contains(8) && (gameState[0] == weapon && gameState[4] == weapon)) {
+                r = 8
+            } else {
+                r = list[Random.nextInt(0..list.size - 1)]
+            }
+        }
         isclicked = r
         if (r == 0 && gameState[isclicked] == 2) {
             return btn1
@@ -197,6 +300,7 @@ class GamePlayActivity : AppCompatActivity() {
                 dialogView.result.text = "That was a tie!"
             }
         }
+        alertDialog.setCancelable(false)
         Handler().postDelayed({ alertDialog.show() }, 800)
 
         dialogView.btnRematch.setOnClickListener {
@@ -271,9 +375,11 @@ class GamePlayActivity : AppCompatActivity() {
                 if (weapon == 0) {
                     turn = 0 // your O
                     pl = 0
+                    jarvis = 1
                 } else if (weapon == 1) {
                     turn = 1 // your X
                     pl = 1
+                    jarvis = 0
                 }
                 if (turn != first) {
                     turn = if (turn == 0) {
