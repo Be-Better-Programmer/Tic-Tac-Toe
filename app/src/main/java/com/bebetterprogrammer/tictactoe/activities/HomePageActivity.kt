@@ -17,13 +17,13 @@ class HomePageActivity : AppCompatActivity() {
 
         playWithJarvis.setOnClickListener {
 
-            val i = Intent(this, PlayWithJarvisActivity::class.java)
-            startActivity(i)
+            val intent = Intent(this, PlayWithJarvisActivity::class.java)
+            startActivity(intent)
+
         }
         playWithFriend.setOnClickListener {
-
-            val i = Intent(this, PlayWithFriendActivity::class.java)
-            startActivity(i)
+            val intent = Intent(this, PlayWithFriendActivity::class.java)
+            startActivity(intent)
         }
     }
 }
