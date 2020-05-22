@@ -96,5 +96,4 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         intent.putExtra("vsWhom", 1) // Vs Jarvis
         startActivity(intent)
     }
-
 }
