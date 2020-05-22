@@ -135,7 +135,6 @@
             android:text="@string/option_choice"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/circle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
