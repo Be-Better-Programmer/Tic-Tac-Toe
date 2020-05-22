@@ -12,15 +12,17 @@ import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_play_with_friend.*
 
 class PlayWithJarvisActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_with_jarvis)
 
+        val versionName = BuildConfig.VERSION_NAME
+        appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
+
         var flag: Int = 0
         var flag1: Int = 0
         var flag2: Int = 0
-        val versionName = BuildConfig.VERSION_NAME
-        appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
 
         val low = findViewById<Button>(R.id.diff_low)
         val medium = findViewById<Button>(R.id.diff_medium)
@@ -94,4 +96,5 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         intent.putExtra("vsWhom", 1) // Vs Jarvis
         startActivity(intent)
     }
+
 }
