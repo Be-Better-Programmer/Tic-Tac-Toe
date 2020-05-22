@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.Gameplay"
+    tools:context=".activities.GamePlayActivity"
     tools:ignore="MissingPrefix">
 
     <ImageView
@@ -72,30 +72,33 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="2dp"
+                android:padding="12dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="0" />
 
             <ImageView
                 android:id="@+id/btn2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="1" />
 
             <ImageView
                 android:id="@+id/btn3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="2" />
 
         </LinearLayout>
@@ -113,31 +116,34 @@
                 android:id="@+id/btn4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="3" />
 
             <ImageView
                 android:id="@+id/btn5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="4" />
 
             <ImageView
                 android:id="@+id/btn6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="5" />
 
         </LinearLayout>
@@ -154,31 +160,34 @@
                 android:id="@+id/btn7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="6" />
 
             <ImageView
                 android:id="@+id/btn8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="7" />
 
             <ImageView
                 android:id="@+id/btn9"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:padding="12dp"
                 android:layout_marginStart="2dp"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:onClick="PlayerClick"
+                android:onClick="playerClick"
                 android:tag="8" />
 
         </LinearLayout>
