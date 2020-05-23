@@ -16,10 +16,8 @@ class HomePageActivity : AppCompatActivity() {
         appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
 
         playWithJarvis.setOnClickListener {
-
             val intent = Intent(this, PlayWithJarvisActivity::class.java)
             startActivity(intent)
-
         }
         playWithFriend.setOnClickListener {
             val intent = Intent(this, PlayWithFriendActivity::class.java)
