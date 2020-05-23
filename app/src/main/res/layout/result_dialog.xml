@@ -3,12 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="60dp"
-    android:layout_marginStart="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
+    android:layout_marginStart="60dp"
+    android:layout_marginEnd="60dp"
     android:background="@drawable/layout_dialog">
-
     <ImageView
         android:id="@+id/resultTrophy"
         android:layout_width="100dp"
@@ -19,7 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
@@ -31,7 +29,6 @@
         app:layout_constraintTop_toBottomOf="@+id/resultTrophy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
     <TextView
         android:id="@+id/btnRematch"
         android:layout_width="match_parent"
@@ -48,7 +45,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/btnQuit"
         android:layout_width="match_parent"
@@ -62,5 +58,4 @@
         android:gravity="center"
         android:text="@string/quit"
         android:textSize="14sp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

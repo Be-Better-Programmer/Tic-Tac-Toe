@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,18 +15,19 @@
         android:layout_marginEnd="@dimen/setting_button_margin"
         android:padding="8dp"
         android:src="@drawable/ic_settings"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/appName"
+        android:id="@+id/appTitleLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_title_layout_margin_top"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icSetting">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/appTitle"
@@ -61,16 +61,16 @@
         android:id="@+id/appImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:maxWidth="180dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="16dp"
+        android:maxWidth="180dp"
         android:src="@drawable/ic_game_board"
         app:layout_constraintBottom_toTopOf="@id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appName" />
+        app:layout_constraintTop_toBottomOf="@id/appTitleLayout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomLayout"
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="@dimen/default_button_margin"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/default_button_margin"
             android:layout_marginRight="@dimen/default_button_margin"
             android:background="@drawable/layout_button"
             android:orientation="horizontal"
@@ -189,7 +189,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="bottom"
-            android:text="@string/app_design_By_name"
             android:textSize="@dimen/app_design_by_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -17,16 +17,16 @@
         android:layout_marginEnd="@dimen/setting_button_margin"
         android:padding="8dp"
         android:src="@drawable/ic_settings"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/appName"
+        android:id="@+id/appTitleLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_title_layout_margin_top"
         android:orientation="vertical"
-        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -62,15 +62,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_margin="60dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appName">
+        app:layout_constraintTop_toBottomOf="@id/appTitleLayout">
 
         <TextView
             android:id="@+id/circle_player"
@@ -82,7 +79,6 @@
             android:text="@string/player_name"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/player_one"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,7 +93,6 @@
             android:textColorHint="#99FFFFFF"
             android:textSize="@dimen/default_text_size"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/cross_player"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/circle_player" />
 
@@ -105,7 +100,7 @@
             android:id="@+id/cross_player"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:drawableStart="@drawable/ic_cross_white"
             android:drawablePadding="10dp"
             android:gravity="center"
@@ -113,7 +108,6 @@
             android:text="@string/player_name"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/player_two"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/player_one" />
 
@@ -121,7 +115,7 @@
             android:id="@+id/player_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/default_margin"
             android:backgroundTint="@color/white"
             android:hint="@string/cross_hint_text"
             android:inputType="text"
@@ -129,7 +123,6 @@
             android:textColorHint="#99FFFFFF"
             android:textSize="@dimen/default_text_size"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/choice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cross_player" />
@@ -138,23 +131,22 @@
             android:id="@+id/choice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:layout_marginBottom="5dp"
-            android:text="@string/who_will_move_first"
             android:gravity="center"
+            android:text="@string/who_will_move_first"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/circle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/player_two" />
 
         <ImageButton
             android:id="@+id/circle"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="@dimen/ic_circle_cross_size"
+            android:layout_height="@dimen/ic_circle_cross_size"
+            android:layout_marginStart="@dimen/ic_circle_cross_margin"
+            android:layout_marginTop="@dimen/default_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_circle_white"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -164,10 +156,10 @@
 
         <ImageButton
             android:id="@+id/cross"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="@dimen/ic_circle_cross_size"
+            android:layout_height="@dimen/ic_circle_cross_size"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/ic_circle_cross_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_cross_white"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -189,7 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="@dimen/default_button_margin"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/default_button_margin"
             android:layout_marginRight="@dimen/default_button_margin"
             android:background="@drawable/layout_button"
             android:gravity="center"
@@ -223,7 +215,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="bottom"
-            android:text="@string/app_design_By_name"
             android:textSize="@dimen/app_design_by_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

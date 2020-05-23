@@ -18,44 +18,19 @@
         android:src="@drawable/ic_setting_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"/>
+        android:visibility="gone"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/appName"
+    <TextView
+        android:id="@+id/tv_turn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icSetting">
-
-        <TextView
-            android:id="@+id/appTitle"
-            fontPath="font/Righteous-Regular.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:fontFamily="@font/righteous"
-            android:text="@string/app_name"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/app_icon_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            fontPath="font/SnellRoundhand.ttf"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/snell_round_hand"
-            android:text="@string/app_tag_name"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/app_tag_name_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appTitle" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="48dp"
+        android:textSize="@dimen/default_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
 
     <LinearLayout
         android:layout_width="300dp"
@@ -65,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@+id/scoreBoard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appName">
+        app:layout_constraintTop_toBottomOf="@+id/tv_turn">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -226,7 +201,7 @@
                 android:singleLine="true"
                 android:text="Jone"
                 android:textColor="@color/black"
-                android:textSize="@dimen/player_name_text_size" />
+                android:textSize="@dimen/default_text_size" />
 
             <TextView
                 android:id="@+id/p1_winning"
@@ -237,7 +212,7 @@
                 android:text="0"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/player_name_text_size" />
+                android:textSize="@dimen/default_text_size" />
 
         </LinearLayout>
 
@@ -279,7 +254,7 @@
                 android:singleLine="true"
                 android:text="Jone"
                 android:textColor="@color/black"
-                android:textSize="@dimen/player_name_text_size" />
+                android:textSize="@dimen/default_text_size" />
 
             <TextView
                 android:id="@+id/p2_winning"
@@ -290,7 +265,7 @@
                 android:text="0"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/player_name_text_size" />
+                android:textSize="@dimen/default_text_size" />
 
         </LinearLayout>
 
