@@ -1,7 +1,6 @@
 package com.bebetterprogrammer.tictactoe.activities
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
-import kotlinx.android.synthetic.main.activity_play_with_jarvis.*
 import kotlinx.android.synthetic.main.result_dialog.view.*
 
 class GamePlayActivity : AppCompatActivity() {
@@ -391,9 +389,8 @@ class GamePlayActivity : AppCompatActivity() {
                 }
             }
         }
-        quit.setOnClickListener {
-            val intent = Intent(this, HomePageActivity::class.java)
-            startActivity(intent)
+        btnQuit.setOnClickListener {
+            finish()
         }
     }
 }

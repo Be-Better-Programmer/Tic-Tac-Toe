@@ -66,6 +66,7 @@ class PlayWithFriendActivity : AppCompatActivity() {
                     intent.putExtra("Player", 1) // X will move first
                 }
                 startActivity(intent)
+                finish()
             }
         })
 //        var btnQuit = findViewById(R.id.btnQuit) as Button

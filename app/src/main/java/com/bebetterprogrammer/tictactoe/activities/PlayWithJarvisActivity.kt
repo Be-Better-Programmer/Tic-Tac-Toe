@@ -92,5 +92,6 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         intent.putExtra("Flag2", flag2) // Who will move first
         intent.putExtra("vsWhom", 1) // Vs Jarvis
         startActivity(intent)
+        finish()
     }
 }
