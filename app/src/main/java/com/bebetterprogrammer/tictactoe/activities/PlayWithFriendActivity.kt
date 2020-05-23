@@ -4,9 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
@@ -25,7 +25,8 @@ class PlayWithFriendActivity : AppCompatActivity() {
         var flag: Int = 0
         val p1 = findViewById<EditText>(R.id.player_one)
         val p2 = findViewById<EditText>(R.id.player_two)
-        val btnPlay = findViewById<Button>(R.id.play)
+        val play = findViewById<TextView>(R.id.btnPlay)
+        val quit = findViewById<TextView>(R.id.btnQuit)
 
         val circle = findViewById<ImageButton>(R.id.circle)
         val cross = findViewById<ImageButton>(R.id.cross)
@@ -44,7 +45,7 @@ class PlayWithFriendActivity : AppCompatActivity() {
             flag = 1
         })
 
-        btnPlay.setOnClickListener(View.OnClickListener {
+        play.setOnClickListener(View.OnClickListener {
             if (TextUtils.isEmpty(p1.text) || TextUtils.isEmpty(p2.text)) {
                 if (TextUtils.isEmpty(p1.text) && TextUtils.isEmpty(p2.text)) {
                     Toast.makeText(this, "Enter Player Name", Toast.LENGTH_SHORT).show()
@@ -68,8 +69,7 @@ class PlayWithFriendActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
-        var btnQuit = findViewById(R.id.quit) as Button
-        btnQuit.setOnClickListener(View.OnClickListener {
+        quit.setOnClickListener(View.OnClickListener {
             finish()
         })
     }

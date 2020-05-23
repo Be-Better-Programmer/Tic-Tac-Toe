@@ -5,21 +5,24 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_play_with_friend.*
 
 class PlayWithJarvisActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_with_jarvis)
 
+        val versionName = BuildConfig.VERSION_NAME
+        appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
+
         var flag: Int = 0
         var flag1: Int = 0
         var flag2: Int = 0
-        val versionName = BuildConfig.VERSION_NAME
-        appBottomLine.text = "Designed @ bebetterprogrammer.com | v$versionName"
 
         val low = findViewById<Button>(R.id.diff_low)
         val medium = findViewById<Button>(R.id.diff_medium)
@@ -30,8 +33,8 @@ class PlayWithJarvisActivity : AppCompatActivity() {
         val moveCircle = findViewById<ImageButton>(R.id.circle_move)
         val moveCross = findViewById<ImageButton>(R.id.cross_move)
 
-        val play = findViewById<Button>(R.id.play)
-        val quit = findViewById<Button>(R.id.quit)
+        val play = findViewById<TextView>(R.id.btnPlay)
+        val quit = findViewById<TextView>(R.id.btnQuit)
 
         low.setBackgroundResource(R.drawable.layout_difficulty_button_secondary)
         wepCircle.setImageResource(R.drawable.ic_circle_secondary)
