@@ -11,20 +11,22 @@
 
     <ImageView
         android:id="@+id/icSetting"
-        android:layout_width="@dimen/setting_button_width"
-        android:layout_height="@dimen/setting_button_height"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="@dimen/setting_button_margin"
         android:layout_marginEnd="@dimen/setting_button_margin"
+        android:padding="8dp"
         android:src="@drawable/ic_settings"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/appName"
+        android:id="@+id/appTitleLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_title_layout_margin_top"
         android:orientation="vertical"
-        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -44,7 +46,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
             fontPath="font/SnellRoundhand.ttf"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -59,17 +60,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="50dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appName">
+        app:layout_constraintTop_toBottomOf="@id/appTitleLayout">
 
         <TextView
             android:id="@+id/jarvisPower"
@@ -79,16 +77,14 @@
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <Button
             android:id="@+id/diff_low"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:layout_marginEnd="8dp"
             android:background="@drawable/layout_difficulty_button"
             android:text="@string/difficulty_low"
@@ -101,8 +97,8 @@
         <Button
             android:id="@+id/diff_medium"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:background="@drawable/layout_difficulty_button"
             android:text="@string/difficulty_medium"
             android:textColor="@color/white"
@@ -114,9 +110,9 @@
         <Button
             android:id="@+id/diff_high"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:background="@drawable/layout_difficulty_button"
             android:text="@string/difficulty_high"
             android:textColor="@color/white"
@@ -125,89 +121,77 @@
             app:layout_constraintStart_toEndOf="@+id/diff_medium"
             app:layout_constraintTop_toBottomOf="@+id/jarvisPower" />
 
-
         <TextView
-            android:id="@+id/wepon_choice"
+            android:id="@+id/weapon_choice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/circle_cross_top_margin"
-            android:drawablePadding="10dp"
+            android:layout_marginTop="@dimen/default_margin"
             android:text="@string/option_choice"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/diff_medium"
-            app:layout_constraintVertical_bias="0.103" />
+            app:layout_constraintTop_toBottomOf="@+id/diff_medium" />
 
         <ImageButton
-            android:id="@+id/wepon_circle"
-            android:layout_width="@dimen/circle_cross_button_width_height"
-            android:layout_height="@dimen/circle_cross_button_width_height"
-            android:layout_marginStart="@dimen/circle_start_margin"
+            android:id="@+id/weapon_circle"
+            android:layout_width="@dimen/ic_circle_cross_size"
+            android:layout_height="@dimen/ic_circle_cross_size"
+            android:layout_marginStart="@dimen/ic_circle_cross_margin"
+            android:layout_marginTop="@dimen/default_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_circle_white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/wepon_cross"
+            app:layout_constraintEnd_toStartOf="@+id/weapon_cross"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wepon_choice"
-            app:layout_constraintVertical_bias="0.157" />
+            app:layout_constraintTop_toBottomOf="@+id/weapon_choice" />
 
         <ImageButton
-            android:id="@+id/wepon_cross"
-            android:layout_width="@dimen/circle_cross_button_width_height"
-            android:layout_height="@dimen/circle_cross_button_width_height"
-            android:layout_marginTop="@dimen/circle_cross_top_margin"
-            android:layout_marginEnd="@dimen/cross_end_margin"
+            android:id="@+id/weapon_cross"
+            android:layout_width="@dimen/ic_circle_cross_size"
+            android:layout_height="@dimen/ic_circle_cross_size"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/ic_circle_cross_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_cross_white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/wepon_circle"
-            app:layout_constraintTop_toBottomOf="@+id/wepon_choice"
-            app:layout_constraintVertical_bias="0.091" />
+            app:layout_constraintStart_toEndOf="@+id/weapon_circle"
+            app:layout_constraintTop_toBottomOf="@+id/weapon_choice" />
 
         <TextView
             android:id="@+id/choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/move_option_text_top_margin"
+            android:layout_marginTop="@dimen/default_margin"
             android:text="@string/who_will_move_first"
-            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="@dimen/default_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wepon_circle" />
+            app:layout_constraintTop_toBottomOf="@+id/weapon_circle" />
 
         <ImageButton
             android:id="@+id/circle_move"
-            android:layout_width="@dimen/circle_cross_button_width_height"
-            android:layout_height="@dimen/circle_cross_button_width_height"
-            android:layout_marginStart="@dimen/circle_start_margin"
-            android:layout_marginTop="@dimen/circle_cross_top_margin"
+            android:layout_width="@dimen/ic_circle_cross_size"
+            android:layout_height="@dimen/ic_circle_cross_size"
+            android:layout_marginStart="@dimen/ic_circle_cross_margin"
+            android:layout_marginTop="@dimen/default_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_circle_white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/cross_move"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/choice" />
 
         <ImageButton
             android:id="@+id/cross_move"
-            android:layout_width="@dimen/circle_cross_button_width_height"
-            android:layout_height="@dimen/circle_cross_button_width_height"
-            android:layout_marginTop="@dimen/circle_cross_top_margin"
-            android:layout_marginEnd="@dimen/cross_end_margin"
+            android:layout_width="@dimen/ic_circle_cross_size"
+            android:layout_height="@dimen/ic_circle_cross_size"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/ic_circle_cross_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_cross_white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/circle_move"
             app:layout_constraintTop_toBottomOf="@+id/choice" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -223,7 +207,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="@dimen/default_button_margin"
-            android:layout_marginTop="@dimen/play_button_top_margin"
+            android:layout_marginTop="@dimen/default_button_margin"
             android:layout_marginRight="@dimen/default_button_margin"
             android:background="@drawable/layout_button"
             android:gravity="center"
@@ -238,7 +222,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginLeft="@dimen/default_button_margin"
-            android:layout_marginTop="@dimen/quit_button_top_margin"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="@dimen/default_button_margin"
             android:background="@drawable/layout_quit_button"
             android:gravity="center"
@@ -254,15 +238,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/app_design_by_top_margin"
-            android:layout_marginBottom="@dimen/app_design_by_bottom_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="bottom"
-            android:text="@string/app_design_By_name"
             android:textSize="@dimen/app_design_by_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnQuit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.bebetterprogrammer.tictactoe.activities
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
-import kotlinx.android.synthetic.main.activity_gameplay.quit
 import kotlinx.android.synthetic.main.result_dialog.view.*
 
 class GamePlayActivity : AppCompatActivity() {
@@ -278,6 +276,7 @@ class GamePlayActivity : AppCompatActivity() {
             LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
         builder.setView(dialogView)
         val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
         if (vsWhom == 0) {
             if (obj.result == Result.WON) {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
@@ -309,8 +308,7 @@ class GamePlayActivity : AppCompatActivity() {
         }
 
         dialogView.btnQuit.setOnClickListener {
-            val intent = Intent(this, HomePageActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 
@@ -391,9 +389,8 @@ class GamePlayActivity : AppCompatActivity() {
                 }
             }
         }
-        quit.setOnClickListener {
-            val intent = Intent(this, HomePageActivity::class.java)
-            startActivity(intent)
+        btnQuit.setOnClickListener {
+            finish()
         }
     }
 }
