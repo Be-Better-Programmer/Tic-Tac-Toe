@@ -11,7 +11,7 @@ class GetPosition {
         jarvis: Int,
         weapon: Int
     ): Int {
-        var r = 0
+        var r: Int
         when (whichLevel) {
             0 -> {
                 r = list[Random.nextInt(0..list.size - 1)]
