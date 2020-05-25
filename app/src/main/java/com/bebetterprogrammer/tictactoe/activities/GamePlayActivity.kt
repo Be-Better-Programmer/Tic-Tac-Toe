@@ -8,14 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import com.bebetterprogrammer.tictactoe.utils.GamePlayUtility
 import com.bebetterprogrammer.tictactoe.utils.Result
+import com.bebetterprogrammer.tictactoe.utils.GetPosition
 import kotlin.properties.Delegates
-import kotlin.random.Random
-import kotlin.random.nextInt
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.activity_gameplay.quit
@@ -35,6 +35,8 @@ class GamePlayActivity : AppCompatActivity() {
     var jarvis by Delegates.notNull<Int>()
     var whichFirst by Delegates.notNull<Int>()
     var whichLevel by Delegates.notNull<Int>()
+    var done = 0
+    var getP = GetPosition()
 
     // 0 = O      1 = X     2 = blank
     private val obj = GamePlayUtility()
@@ -52,7 +54,6 @@ class GamePlayActivity : AppCompatActivity() {
                 } else if (turn == 1) {
                     img.setImageResource(R.drawable.ic_cross_yellow)
                 }
-                img.animate().duration = 0
                 obj.isWin(
                     gameState,
                     vsWhom,
@@ -75,8 +76,8 @@ class GamePlayActivity : AppCompatActivity() {
                     turn %= 2
                 }
             }
-        } else if (vsWhom == 1) {
-            if (gameState[tappedImage] == 2 && obj.result != Result.TIE && obj.result != Result.WON && obj.result != Result.LOST) {
+        } else if (vsWhom == 1 && done % 2 == 1) {
+            if (gameState[tappedImage] == 2 && obj.result != Result.TIE && obj.result != Result.WON && obj.result != Result.LOST && turn == weapon) {
                 gameState[tappedImage] = turn
                 list.remove(tappedImage)
                 if (turn == 0) {
@@ -84,7 +85,7 @@ class GamePlayActivity : AppCompatActivity() {
                 } else if (turn == 1) {
                     img.setImageResource(R.drawable.ic_cross_yellow)
                 }
-                img.animate().duration = 0
+                done++
                 obj.isWin(
                     gameState,
                     vsWhom,
@@ -95,161 +96,46 @@ class GamePlayActivity : AppCompatActivity() {
                     player1_trophy,
                     player2_trophy
                 )
-                if (obj.result == Result.WON) {
-                    openDialogBox(view, "YOU")
-                } else if (obj.result == Result.TIE) {
-                    openDialogBox(view, "TIE")
-                }
                 if (obj.result != Result.TIE && obj.result != Result.WON) {
                     turn++
                     turn %= 2
                     putNew(getRandom())
+                }
+                if (obj.result == Result.WON) {
+                    openDialogBox(view, "YOU")
+                } else if (obj.result == Result.TIE) {
+                    openDialogBox(view, "TIE")
                 }
             }
         }
     }
 
     private fun getRandom(): ImageView {
-        var r = list[Random.nextInt(0..list.size - 1)]
-        if (whichLevel == 0 || whichLevel == 2) {
-            r = list[Random.nextInt(0..list.size - 1)]
-        } else if (whichLevel == 1) {
-            if (!list.contains(0) && !list.contains(1) && list.contains(2) && (gameState[0] == jarvis && gameState[1] == jarvis)) {
-                r = 2
-            } else if (!list.contains(5) && !list.contains(8) && list.contains(2) && (gameState[5] == jarvis && gameState[8] == jarvis)) {
-                r = 2
-            } else if (!list.contains(4) && !list.contains(6) && list.contains(2) && (gameState[4] == jarvis && gameState[6] == jarvis)) {
-                r = 2
-            } else if (!list.contains(1) && !list.contains(2) && list.contains(0) && (gameState[1] == jarvis && gameState[2] == jarvis)) {
-                r = 0
-            } else if (!list.contains(3) && !list.contains(6) && list.contains(0) && (gameState[3] == jarvis && gameState[6] == jarvis)) {
-                r = 0
-            } else if (!list.contains(4) && !list.contains(8) && list.contains(0) && (gameState[4] == jarvis && gameState[8] == jarvis)) {
-                r = 0
-            } else if (!list.contains(0) && !list.contains(2) && list.contains(1) && (gameState[0] == jarvis && gameState[2] == jarvis)) {
-                r = 1
-            } else if (!list.contains(4) && !list.contains(7) && list.contains(1) && (gameState[4] == jarvis && gameState[7] == jarvis)) {
-                r = 1
-            } else if (!list.contains(3) && !list.contains(4) && list.contains(5) && (gameState[3] == jarvis && gameState[4] == jarvis)) {
-                r = 5
-            } else if (!list.contains(2) && !list.contains(8) && list.contains(5) && (gameState[2] == jarvis && gameState[8] == jarvis)) {
-                r = 5
-            } else if (!list.contains(4) && !list.contains(5) && list.contains(3) && (gameState[4] == jarvis && gameState[5] == jarvis)) {
-                r = 3
-            } else if (!list.contains(0) && !list.contains(6) && list.contains(3) && (gameState[0] == jarvis && gameState[6] == jarvis)) {
-                r = 3
-            } else if (!list.contains(3) && !list.contains(5) && list.contains(4) && (gameState[3] == jarvis && gameState[5] == jarvis)) {
-                r = 4
-            } else if (!list.contains(1) && !list.contains(7) && list.contains(4) && (gameState[1] == jarvis && gameState[7] == jarvis)) {
-                r = 4
-            } else if (!list.contains(0) && !list.contains(8) && list.contains(4) && (gameState[0] == jarvis && gameState[8] == jarvis)) {
-                r = 4
-            } else if (!list.contains(2) && !list.contains(6) && list.contains(4) && (gameState[2] == jarvis && gameState[6] == jarvis)) {
-                r = 4
-            } else if (!list.contains(6) && !list.contains(7) && list.contains(8) && (gameState[6] == jarvis && gameState[7] == jarvis)) {
-                r = 8
-            } else if (!list.contains(2) && !list.contains(5) && list.contains(8) && (gameState[2] == jarvis && gameState[5] == jarvis)) {
-                r = 8
-            } else if (!list.contains(7) && !list.contains(8) && list.contains(6) && (gameState[7] == jarvis && gameState[8] == jarvis)) {
-                r = 6
-            } else if (!list.contains(0) && !list.contains(3) && list.contains(6) && (gameState[0] == jarvis && gameState[3] == jarvis)) {
-                r = 6
-            } else if (!list.contains(2) && !list.contains(4) && list.contains(6) && (gameState[2] == jarvis && gameState[4] == jarvis)) {
-                r = 6
-            } else if (!list.contains(6) && !list.contains(8) && list.contains(7) && (gameState[6] == jarvis && gameState[8] == jarvis)) {
-                r = 7
-            } else if (!list.contains(1) && !list.contains(4) && list.contains(7) && (gameState[1] == jarvis && gameState[4] == jarvis)) {
-                r = 7
-            } else if (!list.contains(0) && !list.contains(4) && list.contains(8) && (gameState[0] == jarvis && gameState[4] == jarvis)) {
-                r = 8
-            } else if (!list.contains(0) && !list.contains(1) && list.contains(2) && (gameState[0] == weapon && gameState[1] == weapon)) {
-                r = 2
-            } else if (!list.contains(5) && !list.contains(8) && list.contains(2) && (gameState[5] == weapon && gameState[8] == weapon)) {
-                r = 2
-            } else if (!list.contains(4) && !list.contains(6) && list.contains(2) && (gameState[4] == weapon && gameState[6] == weapon)) {
-                r = 2
-            } else if (!list.contains(1) && !list.contains(2) && list.contains(0) && (gameState[1] == weapon && gameState[2] == weapon)) {
-                r = 0
-            } else if (!list.contains(3) && !list.contains(6) && list.contains(0) && (gameState[3] == weapon && gameState[6] == weapon)) {
-                r = 0
-            } else if (!list.contains(4) && !list.contains(8) && list.contains(0) && (gameState[4] == weapon && gameState[8] == weapon)) {
-                r = 0
-            } else if (!list.contains(0) && !list.contains(2) && list.contains(1) && (gameState[0] == weapon && gameState[2] == weapon)) {
-                r = 1
-            } else if (!list.contains(4) && !list.contains(7) && list.contains(1) && (gameState[4] == weapon && gameState[7] == weapon)) {
-                r = 1
-            } else if (!list.contains(3) && !list.contains(4) && list.contains(5) && (gameState[3] == weapon && gameState[4] == weapon)) {
-                r = 5
-            } else if (!list.contains(2) && !list.contains(8) && list.contains(5) && (gameState[2] == weapon && gameState[8] == weapon)) {
-                r = 5
-            } else if (!list.contains(4) && !list.contains(5) && list.contains(3) && (gameState[4] == weapon && gameState[5] == weapon)) {
-                r = 3
-            } else if (!list.contains(0) && !list.contains(6) && list.contains(3) && (gameState[0] == weapon && gameState[6] == weapon)) {
-                r = 3
-            } else if (!list.contains(3) && !list.contains(5) && list.contains(4) && (gameState[3] == weapon && gameState[5] == weapon)) {
-                r = 4
-            } else if (!list.contains(1) && !list.contains(7) && list.contains(4) && (gameState[1] == weapon && gameState[7] == weapon)) {
-                r = 4
-            } else if (!list.contains(0) && !list.contains(8) && list.contains(4) && (gameState[0] == weapon && gameState[8] == weapon)) {
-                r = 4
-            } else if (!list.contains(2) && !list.contains(6) && list.contains(4) && (gameState[2] == weapon && gameState[6] == weapon)) {
-                r = 4
-            } else if (!list.contains(6) && !list.contains(7) && list.contains(8) && (gameState[6] == weapon && gameState[7] == weapon)) {
-                r = 8
-            } else if (!list.contains(2) && !list.contains(5) && list.contains(8) && (gameState[2] == weapon && gameState[5] == weapon)) {
-                r = 8
-            } else if (!list.contains(7) && !list.contains(8) && list.contains(6) && (gameState[7] == weapon && gameState[8] == weapon)) {
-                r = 6
-            } else if (!list.contains(0) && !list.contains(3) && list.contains(6) && (gameState[0] == weapon && gameState[3] == weapon)) {
-                r = 6
-            } else if (!list.contains(2) && !list.contains(4) && list.contains(6) && (gameState[2] == weapon && gameState[4] == weapon)) {
-                r = 6
-            } else if (!list.contains(6) && !list.contains(8) && list.contains(7) && (gameState[6] == weapon && gameState[8] == weapon)) {
-                r = 7
-            } else if (!list.contains(1) && !list.contains(4) && list.contains(7) && (gameState[1] == weapon && gameState[4] == weapon)) {
-                r = 7
-            } else if (!list.contains(0) && !list.contains(4) && list.contains(8) && (gameState[0] == weapon && gameState[4] == weapon)) {
-                r = 8
-            } else {
-                r = list[Random.nextInt(0..list.size - 1)]
-            }
+        var r =  getP.getPos(list, whichLevel, gameState, jarvis, weapon)
+            isclicked = r
+            var q = listOf<ImageView>(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
+            for (i: ImageView in q) {
+                if (gameState[isclicked] == 2) {
+                    return q[isclicked]
+                }
         }
-        isclicked = r
-        if (r == 0 && gameState[isclicked] == 2) {
-            return btn1
-        } else if (r == 1 && gameState[isclicked] == 2) {
-            return btn2
-        } else if (r == 2 && gameState[isclicked] == 2) {
-            return btn3
-        } else if (r == 3 && gameState[isclicked] == 2) {
-            return btn4
-        } else if (r == 4 && gameState[isclicked] == 2) {
-            return btn5
-        } else if (r == 5 && gameState[isclicked] == 2) {
-            return btn6
-        } else if (r == 6 && gameState[isclicked] == 2) {
-            return btn7
-        } else if (r == 7 && gameState[isclicked] == 2) {
-            return btn8
-        } else if (r == 8 && gameState[isclicked] == 2) {
-            return btn9
-        } else
-            return getRandom()
+        return getRandom()
     }
 
     private fun putNew(o: ImageView) {
         if (turn == 0) {
             Handler().postDelayed({
                 o.setImageResource(R.drawable.ic_circle_secondary)
-            }, 800)
+                done++
+            }, 400)
         } else if (turn == 1) {
             Handler().postDelayed({
                 o.setImageResource(R.drawable.ic_cross_yellow)
-            }, 800)
+                done++
+            }, 400)
         }
         gameState[isclicked] = turn
         list.remove(isclicked)
-        o.animate().duration = 0
         obj.isWin(
             gameState,
             vsWhom,
@@ -288,7 +174,7 @@ class GamePlayActivity : AppCompatActivity() {
             }
         } else if (vsWhom == 1) {
             if (obj.result != Result.TIE) {
-                if (obj.playerWon == true) {
+                if (obj.playerWon) {
                     dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
                     dialogView.result.text = "Yeppii.. You Won!"
                 } else if (obj.result == Result.LOST) {
@@ -329,13 +215,15 @@ class GamePlayActivity : AppCompatActivity() {
         obj.result = null
         if (vsWhom == 1) {
             if (turn != first) {
+                done = 0
                 if (turn == 0) {
                     turn = 1
                 } else {
                     turn = 0
                 }
                 putNew(getRandom())
-            }
+            } else
+                done = 1
         }
     }
 
@@ -376,12 +264,15 @@ class GamePlayActivity : AppCompatActivity() {
                     turn = 0 // your O
                     pl = 0
                     jarvis = 1
+                    done = 1
                 } else if (weapon == 1) {
                     turn = 1 // your X
                     pl = 1
                     jarvis = 0
+                    done = 1
                 }
                 if (turn != first) {
+                    done = 0
                     turn = if (turn == 0) {
                         1
                     } else {
