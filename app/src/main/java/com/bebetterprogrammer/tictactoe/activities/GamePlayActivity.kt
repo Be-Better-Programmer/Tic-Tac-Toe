@@ -47,8 +47,10 @@ class GamePlayActivity : AppCompatActivity() {
             if (gameState[tappedImage] == 2 && obj.result != Result.TIE && obj.result != Result.WON) {
                 gameState[tappedImage] = turn
                 if (turn == 0) {
+                    tv_turn.text = "$p2's Turn"
                     img.setImageResource(R.drawable.ic_circle_secondary)
                 } else if (turn == 1) {
+                    tv_turn.text = "$p1's Turn"
                     img.setImageResource(R.drawable.ic_cross_yellow)
                 }
                 obj.isWin(
@@ -77,6 +79,11 @@ class GamePlayActivity : AppCompatActivity() {
             if (gameState[tappedImage] == 2 && obj.result != Result.TIE && obj.result != Result.WON && obj.result != Result.LOST && turn == weapon) {
                 gameState[tappedImage] = turn
                 list.remove(tappedImage)
+                if (turn == weapon) {
+                    tv_turn.text = "Jarvis's Turn"
+                } else {
+                    tv_turn.text = "Your Turn"
+                }
                 if (turn == 0) {
                     img.setImageResource(R.drawable.ic_circle_secondary)
                 } else if (turn == 1) {
@@ -122,11 +129,13 @@ class GamePlayActivity : AppCompatActivity() {
     private fun putNew(o: ImageView) {
         if (turn == 0) {
             Handler().postDelayed({
+                tv_turn.text = "Your Turn"
                 o.setImageResource(R.drawable.ic_circle_secondary)
                 done++
             }, 400)
         } else if (turn == 1) {
             Handler().postDelayed({
+                tv_turn.text = "Your Turn"
                 o.setImageResource(R.drawable.ic_cross_yellow)
                 done++
             }, 400)
@@ -161,7 +170,6 @@ class GamePlayActivity : AppCompatActivity() {
             LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
         builder.setView(dialogView)
         val alertDialog: AlertDialog = builder.create()
-        alertDialog.setCancelable(false)
         if (vsWhom == 0) {
             if (obj.result == Result.WON) {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
@@ -185,7 +193,7 @@ class GamePlayActivity : AppCompatActivity() {
             }
         }
         alertDialog.setCancelable(false)
-        Handler().postDelayed({ alertDialog.show() }, 800)
+        Handler().postDelayed({ alertDialog.show() }, 500)
 
         dialogView.btnRematch.setOnClickListener {
             reset()
@@ -211,6 +219,11 @@ class GamePlayActivity : AppCompatActivity() {
         list = listOf(0, 1, 2, 3, 4, 5, 6, 7, 8).toMutableList()
         obj.result = null
         if (vsWhom == 1) {
+            if ((whichFirst == 0 && weapon == 0) || (whichFirst == 1 && weapon == 1)) {
+                tv_turn.text = "Your Turn"
+            } else {
+                tv_turn.text = "Jarvis's Turn"
+            }
             if (turn != first) {
                 done = 0
                 if (turn == 0) {
@@ -221,6 +234,12 @@ class GamePlayActivity : AppCompatActivity() {
                 putNew(getRandom())
             } else
                 done = 1
+        } else if (vsWhom == 0) {
+            if (player == 0) {
+                tv_turn.text = "$p1's Turn"
+            } else if (player == 1) {
+                tv_turn.text = "$p2's Turn"
+            }
         }
     }
 
@@ -240,9 +259,11 @@ class GamePlayActivity : AppCompatActivity() {
             Player1.text = p1 // First Player Name
             Player2.text = p2 // Second Player Name
             if (player == 0) {
+                tv_turn.text = "$p1's Turn"
                 turn = 0
                 pl = 0
             } else if (player == 1) {
+                tv_turn.text = "$p2's Turn"
                 turn = 1
                 pl = 1
             }
@@ -256,6 +277,11 @@ class GamePlayActivity : AppCompatActivity() {
                 } else if (whichFirst == 1) {
                     first = 1 // X
                     fl = 1
+                }
+                if ((whichFirst == 0 && weapon == 0) || (whichFirst == 1 && weapon == 1)) {
+                    tv_turn.text = "Your Turn"
+                } else {
+                    tv_turn.text = "Jarvis's Turn"
                 }
                 if (weapon == 0) {
                     turn = 0 // your O
