@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import com.bebetterprogrammer.tictactoe.utils.GamePlayUtility
-import com.bebetterprogrammer.tictactoe.utils.Result
 import com.bebetterprogrammer.tictactoe.utils.GetPosition
+import com.bebetterprogrammer.tictactoe.utils.Result
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
