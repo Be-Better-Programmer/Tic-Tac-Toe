@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
@@ -109,13 +108,13 @@ class GamePlayActivity : AppCompatActivity() {
     }
 
     private fun getRandom(): ImageView {
-        var r =  getP.getPos(list, whichLevel, gameState, jarvis, weapon)
-            isclicked = r
-            var q = listOf<ImageView>(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
-            for (i: ImageView in q) {
-                if (gameState[isclicked] == 2) {
-                    return q[isclicked]
-                }
+        var r = getP.getPos(list, whichLevel, gameState, jarvis, weapon)
+        isclicked = r
+        var q = listOf<ImageView>(btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
+        for (i: ImageView in q) {
+            if (gameState[isclicked] == 2) {
+                return q[isclicked]
+            }
         }
         return getRandom()
     }

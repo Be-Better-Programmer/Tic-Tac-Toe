@@ -1,8 +1,5 @@
 package com.bebetterprogrammer.tictactoe.utils
 
-import android.content.Context
-import android.widget.Toast
-import com.bebetterprogrammer.tictactoe.activities.GamePlayActivity
 import kotlin.random.Random
 import kotlin.random.nextInt
 
