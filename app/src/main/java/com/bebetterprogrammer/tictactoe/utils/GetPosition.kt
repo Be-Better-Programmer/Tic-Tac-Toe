@@ -312,8 +312,7 @@ class GetPosition {
                     r = 0
                 } else if (!list.containsAll(
                         listOf(5, 7)
-                    ) && gameState[5] == weapon && gameState[7] == weapon
-                    && list.contains(8)
+                    ) && gameState[5] == weapon && gameState[7] == weapon && list.contains(8)
                 ) {
                     r = 8
                 } else if (!list.containsAll(
@@ -325,9 +324,11 @@ class GetPosition {
                 ) {
                     r = 6
                 } else if (!list.containsAll(
-                        listOf(1, 5)
-                    ) && gameState[5] == weapon && gameState[1] == weapon
-                    && list.contains(2)
+                        listOf(
+                            1,
+                            5
+                        )
+                    ) && gameState[5] == weapon && gameState[1] == weapon && list.contains(2)
                 ) {
                     r = 2
                 } else {
