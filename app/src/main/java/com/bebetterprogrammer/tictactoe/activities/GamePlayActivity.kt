@@ -34,6 +34,7 @@ class GamePlayActivity : AppCompatActivity() {
     var whichLevel by Delegates.notNull<Int>()
     var done = 0
     var getP = GetPosition()
+    var flag = false
 
     // 0 = O      1 = X     2 = blank
     private val obj = GamePlayUtility()
@@ -106,9 +107,11 @@ class GamePlayActivity : AppCompatActivity() {
                     putNew(getRandom())
                 }
                 if (obj.result == Result.WON) {
-                    openDialogBox(view, "YOU")
+                        openDialogBox(view, "YOU")
                 } else if (obj.result == Result.TIE) {
-                    openDialogBox(view, "TIE")
+                    if (!flag) {
+                        openDialogBox(view, "TIE")
+                    }
                 }
             }
         }
@@ -155,6 +158,7 @@ class GamePlayActivity : AppCompatActivity() {
         if (obj.result == Result.LOST) {
             openDialogBox(o, "JARVIS")
         } else if (obj.result == Result.TIE) {
+            flag = true
             openDialogBox(o, "TIE")
         }
         if (obj.result != Result.TIE && obj.result != Result.WON) {
@@ -164,6 +168,7 @@ class GamePlayActivity : AppCompatActivity() {
     }
 
     private fun openDialogBox(v: View, playerName: String) {
+
         val builder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
         val viewGroup = findViewById<ViewGroup>(android.R.id.content)
         val dialogView: View =
@@ -196,8 +201,8 @@ class GamePlayActivity : AppCompatActivity() {
         Handler().postDelayed({ alertDialog.show() }, 500)
 
         dialogView.btnRematch.setOnClickListener {
-            reset()
             alertDialog.dismiss()
+            reset()
         }
 
         dialogView.btnQuit.setOnClickListener {
