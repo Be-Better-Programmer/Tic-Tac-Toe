@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Tic Tac Toe</string>
+    <string name="app_tag_name">master piece</string>
+    <string name="app_design_By_name">Designed @ bebetterprogrammer.com | </string>
+    <string name="you">YOU</string>
+    <string name="jarvis">JARVIS</string>
+    <string name="vs">vs</string>
+    <string name="friend">FRIEND</string>
+    <string name="rematch">Rematch</string>
+    <string name="quit">QUIT</string>
+    <string name="player_name">Player Name</string>
+    <string name="play_button">PLAY</string>
+    <string name="quit_button">QUIT</string>
+    <string name="circle_hint_text">Player-O</string>
+    <string name="cross_hint_text">Player-X</string>
+    <string name="who_will_move_first">Who will move first?</string>
+    <string name="difficulty_level">Jarvis Power?</string>
+    <string name="difficulty_low">Low</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_high">High</string>
+    <string name="option_choice">What is your weapon against Jarvis?</string>
 </resources>

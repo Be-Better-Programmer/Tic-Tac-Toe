@@ -11,7 +11,9 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/40732154?v=4",
       "profile": "https://www.linkedin.com/in/meetkparmar/",
       "contributions": [
-        "code"
+        "code",
+        "bug",
+        "design"
       ]
     },
     {
@@ -33,6 +35,24 @@
       "profile": "https://allcontributors.org",
       "contributions": [
         "doc"
+      ]
+    },
+    {
+      "login": "UmangGoti",
+      "name": "UmangGoti",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/64679424?v=4",
+      "profile": "https://github.com/UmangGoti",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "HAP28",
+      "name": "Harshit Parikh",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/33604059?v=4",
+      "profile": "https://github.com/HAP28",
+      "contributions": [
+        "code"
       ]
     }
   ],
