@@ -118,7 +118,7 @@
             android:layout_marginBottom="@dimen/default_margin"
             android:backgroundTint="@color/white"
             android:hint="@string/cross_hint_text"
-            android:inputType="text"
+            android:inputType="textCapWords"
             android:textColor="@color/white"
             android:textColorHint="#99FFFFFF"
             android:textSize="@dimen/default_text_size"
