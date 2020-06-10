@@ -1,5 +1,7 @@
-# Tic-Tac-Toe
 
+![Cover Image](https://github.com/Be-Better-Programmer/Tic-Tac-Toe/blob/develop/design/playstore/Cover_5x.png)
+
+# Tic-Tac-Toe
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![Join the chat at https://bebetterprogrammer.slack.com/](https://img.shields.io/badge/slack-bebetterprogrammer-blue?logo=slack)](https://bebetterprogrammer.slack.com/)
@@ -7,9 +9,19 @@
 
 An Interesting and well-known Tic Tac Toe Game with Single And Multi-Player functionality
 
+### Features
+- Single Player Mode - Play with Jarvis (The Computer)
+- Multi Player Mode - Play with Friends
+- Jarvis with 3 difficulty levels - Low, Medium and High
+
+### Screens
+| | | | | |
+|:----:|:----:|:----:|:----:|:----:|
+| <img alt="SS_1" src="https://github.com/Be-Better-Programmer/Tic-Tac-Toe/blob/develop/design/playstore/SS_1.png"> | <img alt="SS_2" src="https://github.com/Be-Better-Programmer/Tic-Tac-Toe/blob/develop/design/playstore/SS_2.png"> | <img alt="SS_3" src="https://github.com/Be-Better-Programmer/Tic-Tac-Toe/blob/develop/design/playstore/SS_3.png"> | <img alt="SS_4" src="https://github.com/Be-Better-Programmer/Tic-Tac-Toe/blob/develop/design/playstore/SS_4.png"> | <img alt="SS_5" src="https://github.com/Be-Better-Programmer/Tic-Tac-Toe/blob/develop/design/playstore/SS_5.png"> |
+
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -28,4 +40,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Note: This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome! Reference - [emoji key](https://allcontributors.org/docs/en/emoji-key)
