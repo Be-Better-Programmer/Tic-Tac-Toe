@@ -34,6 +34,7 @@ class GamePlayActivity : AppCompatActivity() {
     var whichLevel by Delegates.notNull<Int>()
     var done = 0
     var getP = GetPosition()
+    var flag = false
 
     // 0 = O      1 = X     2 = blank
     private val obj = GamePlayUtility()
@@ -108,7 +109,9 @@ class GamePlayActivity : AppCompatActivity() {
                 if (obj.result == Result.WON) {
                     openDialogBox(view, "YOU")
                 } else if (obj.result == Result.TIE) {
-                    openDialogBox(view, "TIE")
+                    if (!flag) {
+                        openDialogBox(view, "TIE")
+                    }
                 }
             }
         }
@@ -155,6 +158,7 @@ class GamePlayActivity : AppCompatActivity() {
         if (obj.result == Result.LOST) {
             openDialogBox(o, "JARVIS")
         } else if (obj.result == Result.TIE) {
+            flag = true
             openDialogBox(o, "TIE")
         }
         if (obj.result != Result.TIE && obj.result != Result.WON) {
