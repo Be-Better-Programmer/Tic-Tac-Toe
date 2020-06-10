@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "",
+        "mobilesdk_app_id": "1:10227262756:android:a7fae8ea9c753722cc3fb1",
         "android_client_info": {
           "package_name": "com.bebetterprogrammer.tictactoe"
         }
