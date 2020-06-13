@@ -1,10 +1,8 @@
 package com.bebetterprogrammer.tictactoe.activities
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
@@ -26,7 +24,7 @@ class HomePageActivity : AppCompatActivity() {
             val intent = Intent(this, PlayWithFriendActivity::class.java)
             startActivity(intent)
         }
-        shareBtn.setOnClickListener{
+        shareBtn.setOnClickListener {
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(
