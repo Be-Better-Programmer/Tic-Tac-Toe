@@ -342,7 +342,7 @@ class GetPosition {
                             ) && gameState[5] == jarvis && gameState[1] == jarvis && list.contains(2)
                         ) {
                             r = 2
-                        } ///new code
+                        } // new code
                         else if (!list.containsAll(
                                 listOf(
                                     0,
@@ -455,7 +455,7 @@ class GetPosition {
                             } else if (list.contains(2)) {
                                 r = 6
                             }
-                        } //player break
+                        } // player break
                         else if (!list.containsAll(
                                 listOf(
                                     8,
