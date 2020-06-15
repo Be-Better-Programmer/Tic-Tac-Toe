@@ -1,6 +1,7 @@
 package com.bebetterprogrammer.tictactoe.activities
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
@@ -22,6 +23,21 @@ class HomePageActivity : AppCompatActivity() {
         playWithFriend.setOnClickListener {
             val intent = Intent(this, PlayWithFriendActivity::class.java)
             startActivity(intent)
+        }
+        shareBtn.setOnClickListener {
+            val shareIntent = Intent()
+            shareIntent.action = Intent.ACTION_SEND
+            shareIntent.putExtra(
+                Intent.EXTRA_TEXT,
+                "https://play.google.com/store/apps/details?id=com.bebetterprogrammer.tictactoe"
+            )
+            shareIntent.type = "text/plain"
+            startActivity(Intent.createChooser(shareIntent, "Share via"))
+        }
+        ratingBtn.setOnClickListener {
+            val uri = Uri.parse("https://play.google.com/store/apps/details?id=com.bebetterprogrammer.tictactoe")
+            val rateIntent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(rateIntent)
         }
     }
 }
