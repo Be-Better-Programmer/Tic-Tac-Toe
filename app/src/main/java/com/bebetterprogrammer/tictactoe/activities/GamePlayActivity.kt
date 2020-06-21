@@ -1,11 +1,13 @@
 package com.bebetterprogrammer.tictactoe.activities
 
+import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
@@ -13,10 +15,10 @@ import com.bebetterprogrammer.tictactoe.R
 import com.bebetterprogrammer.tictactoe.utils.GamePlayUtility
 import com.bebetterprogrammer.tictactoe.utils.GetPosition
 import com.bebetterprogrammer.tictactoe.utils.Result
-import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_gameplay.*
-import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.result_dialog.view.*
+import kotlin.properties.Delegates
+
 
 class GamePlayActivity : AppCompatActivity() {
     var turn: Int = 0
@@ -50,9 +52,13 @@ class GamePlayActivity : AppCompatActivity() {
                 if (turn == 0) {
                     tv_turn.text = "$p2's Turn"
                     img.setImageResource(R.drawable.ic_circle_secondary)
+                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 } else if (turn == 1) {
                     tv_turn.text = "$p1's Turn"
                     img.setImageResource(R.drawable.ic_cross_yellow)
+                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 }
                 obj.isWin(
                     gameState,
@@ -87,8 +93,12 @@ class GamePlayActivity : AppCompatActivity() {
                 }
                 if (turn == 0) {
                     img.setImageResource(R.drawable.ic_circle_secondary)
+                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 } else if (turn == 1) {
                     img.setImageResource(R.drawable.ic_cross_yellow)
+                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 }
                 done++
                 obj.isWin(
@@ -134,12 +144,16 @@ class GamePlayActivity : AppCompatActivity() {
             Handler().postDelayed({
                 tv_turn.text = "Your Turn"
                 o.setImageResource(R.drawable.ic_circle_secondary)
+                val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                o.startAnimation(animFadeIn)
                 done++
             }, 400)
         } else if (turn == 1) {
             Handler().postDelayed({
                 tv_turn.text = "Your Turn"
                 o.setImageResource(R.drawable.ic_cross_yellow)
+                val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                o.startAnimation(animFadeIn)
                 done++
             }, 400)
         }
