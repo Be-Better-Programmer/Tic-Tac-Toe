@@ -1,5 +1,7 @@
 package com.bebetterprogrammer.tictactoe.utils
 
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import com.bebetterprogrammer.tictactoe.R
@@ -54,10 +56,14 @@ class GamePlayUtility {
                 when {
                     p1 > p2 -> {
                         player1_trophy.setImageResource(R.drawable.ic_trophy_golden)
+                        val animFadeIn = AnimationUtils.loadAnimation(player1_trophy.context,  R.anim.vibrate)
+                        player1_trophy.startAnimation(animFadeIn)
                         player2_trophy.setImageResource(R.drawable.ic_trophy_grey)
                     }
                     p2 > p1 -> {
                         player2_trophy.setImageResource(R.drawable.ic_trophy_golden)
+                        val animFadeIn = AnimationUtils.loadAnimation(player2_trophy.context,  R.anim.vibrate)
+                        player2_trophy.startAnimation(animFadeIn)
                         player1_trophy.setImageResource(R.drawable.ic_trophy_grey)
                     }
                     else -> {
