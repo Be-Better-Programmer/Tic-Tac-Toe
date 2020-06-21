@@ -19,7 +19,7 @@ class GamePlayUtility {
         turn: Int,
         p1_winning: TextView,
         p2_winning: TextView,
-        pl: Int,
+        weapon: Int,
         player1_trophy: ImageView,
         player2_trophy: ImageView
     ) {
@@ -38,7 +38,7 @@ class GamePlayUtility {
                         p2_winning.text = p2.toString()
                     }
                 } else if (vsWhom == 1) { // Vs Jarvis
-                    if (turn == pl) {
+                    if (turn == weapon) {
                         result = Result.WON
                         playerWon = true
                         p1 = p1_winning.text.toString().toInt()

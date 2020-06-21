@@ -21,6 +21,7 @@ import kotlin.properties.Delegates
 
 
 class GamePlayActivity : AppCompatActivity() {
+    var x: Int = 0
     var turn: Int = 0
     var first: Int = 0
     var pl: Int = 0
@@ -37,6 +38,7 @@ class GamePlayActivity : AppCompatActivity() {
     var done = 0
     var getP = GetPosition()
     var flag = false
+    var played = 0
 
     // 0 = O      1 = X     2 = blank
     private val obj = GamePlayUtility()
@@ -66,7 +68,7 @@ class GamePlayActivity : AppCompatActivity() {
                     turn,
                     p1_winning,
                     p2_winning,
-                    pl,
+                    -1,
                     player1_trophy,
                     player2_trophy
                 )
@@ -107,7 +109,7 @@ class GamePlayActivity : AppCompatActivity() {
                     turn,
                     p1_winning,
                     p2_winning,
-                    pl,
+                    weapon,
                     player1_trophy,
                     player2_trophy
                 )
@@ -165,7 +167,7 @@ class GamePlayActivity : AppCompatActivity() {
             turn,
             p1_winning,
             p2_winning,
-            pl,
+            weapon,
             player1_trophy,
             player2_trophy
         )
@@ -224,6 +226,7 @@ class GamePlayActivity : AppCompatActivity() {
     }
 
     private fun reset() {
+        flag = false
         for (i in 0..8) {
             gameState[i] = 2
         }
@@ -231,27 +234,44 @@ class GamePlayActivity : AppCompatActivity() {
         for (i: ImageView in q) {
             i.setImageResource(0)
         }
-        turn = pl
-        first = fl
+        player = pl
+        if (x == 0) {
+            turn = pl
+            first = fl
+        }
         obj.playerWon = false
         list = listOf(0, 1, 2, 3, 4, 5, 6, 7, 8).toMutableList()
         obj.result = null
         if (vsWhom == 1) {
-            if ((whichFirst == 0 && weapon == 0) || (whichFirst == 1 && weapon == 1)) {
+            if (turn != first && played == 1) {
+                first = turn
+                x = 1
+            }
+            if (turn == first && played == 0) {
+                x = 0
+                first++
+                first %= 2
+                played = 1
+            }
+            if (first == turn) {
+                played = 0
+            }
+            if (turn != first) {
+                done = 0
+                turn = if (turn == 0) {
+                    1
+                } else {
+                    0
+                }
+                putNew(getRandom())
+            } else {
+                done = 1
+            }
+            if (turn == weapon) {
                 tv_turn.text = "Your Turn"
             } else {
                 tv_turn.text = "Jarvis's Turn"
             }
-            if (turn != first) {
-                done = 0
-                if (turn == 0) {
-                    turn = 1
-                } else {
-                    turn = 0
-                }
-                putNew(getRandom())
-            } else
-                done = 1
         } else if (vsWhom == 0) {
             if (player == 0) {
                 tv_turn.text = "$p1's Turn"
@@ -279,13 +299,14 @@ class GamePlayActivity : AppCompatActivity() {
             if (player == 0) {
                 tv_turn.text = "$p1's Turn"
                 turn = 0
-                pl = 0
+                pl = 1
             } else if (player == 1) {
                 tv_turn.text = "$p2's Turn"
                 turn = 1
-                pl = 1
+                pl = 0
             }
         } else if (vsWhom == 1) { // Vs Jarvis
+            played++
             Player1.text = "YOU"
             Player2.text = "JARVIS"
             if (whichLevel == 0 || whichLevel == 1 || whichLevel == 2) {
@@ -313,6 +334,7 @@ class GamePlayActivity : AppCompatActivity() {
                     done = 1
                 }
                 if (turn != first) {
+                    played = 1
                     done = 0
                     turn = if (turn == 0) {
                         1
@@ -320,6 +342,8 @@ class GamePlayActivity : AppCompatActivity() {
                         0
                     }
                     putNew(getRandom())
+                } else {
+                    played = 0
                 }
             }
         }
