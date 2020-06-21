@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
@@ -15,7 +16,6 @@ import com.bebetterprogrammer.tictactoe.utils.GetPosition
 import com.bebetterprogrammer.tictactoe.utils.Result
 import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_gameplay.*
-import kotlinx.android.synthetic.main.activity_gameplay.appBottomLine
 import kotlinx.android.synthetic.main.result_dialog.view.*
 
 class GamePlayActivity : AppCompatActivity() {
@@ -52,9 +52,15 @@ class GamePlayActivity : AppCompatActivity() {
                 if (turn == 0) {
                     tv_turn.text = "$p2's Turn"
                     img.setImageResource(R.drawable.ic_circle_secondary)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 } else if (turn == 1) {
                     tv_turn.text = "$p1's Turn"
                     img.setImageResource(R.drawable.ic_cross_yellow)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 }
                 obj.isWin(
                     gameState,
@@ -89,8 +95,14 @@ class GamePlayActivity : AppCompatActivity() {
                 }
                 if (turn == 0) {
                     img.setImageResource(R.drawable.ic_circle_secondary)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 } else if (turn == 1) {
                     img.setImageResource(R.drawable.ic_cross_yellow)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    img.startAnimation(animFadeIn)
                 }
                 done++
                 obj.isWin(
@@ -136,12 +148,16 @@ class GamePlayActivity : AppCompatActivity() {
             Handler().postDelayed({
                 tv_turn.text = "Your Turn"
                 o.setImageResource(R.drawable.ic_circle_secondary)
+                val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                o.startAnimation(animFadeIn)
                 done++
             }, 400)
         } else if (turn == 1) {
             Handler().postDelayed({
                 tv_turn.text = "Your Turn"
                 o.setImageResource(R.drawable.ic_cross_yellow)
+                val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                o.startAnimation(animFadeIn)
                 done++
             }, 400)
         }
@@ -180,15 +196,18 @@ class GamePlayActivity : AppCompatActivity() {
             if (obj.result == Result.WON) {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
                 dialogView.result.text = "Yeppii.. $playerName Won!"
+                dialogView.animation_view.visibility = View.VISIBLE
             } else if (obj.result == Result.TIE) {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
                 dialogView.result.text = playerName
+                dialogView.animation_view.visibility = View.VISIBLE
             }
         } else if (vsWhom == 1) {
             if (obj.result != Result.TIE) {
                 if (obj.playerWon) {
                     dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
                     dialogView.result.text = "Yeppii.. You Won!"
+                    dialogView.animation_view.visibility = View.VISIBLE
                 } else if (obj.result == Result.LOST) {
                     dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_lost)
                     dialogView.result.text = "Ohh... You Lost!"
@@ -196,18 +215,34 @@ class GamePlayActivity : AppCompatActivity() {
             } else {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
                 dialogView.result.text = "That was a tie!"
+                dialogView.animation_view.visibility = View.VISIBLE
             }
         }
         alertDialog.setCancelable(false)
-        Handler().postDelayed({ alertDialog.show() }, 500)
+
+        val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_in)
+        Handler().postDelayed({
+            dialogView.startAnimation(animFadeIn)
+            alertDialog.show()
+        }, 500)
 
         dialogView.btnRematch.setOnClickListener {
-            reset()
-            alertDialog.dismiss()
+            val animFadeOut =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
+            dialogView.startAnimation(animFadeOut)
+            Handler().postDelayed({
+                reset()
+                alertDialog.dismiss()
+            }, 500)
         }
 
         dialogView.btnQuit.setOnClickListener {
-            finish()
+            val animFadeOut =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
+            dialogView.startAnimation(animFadeOut)
+            Handler().postDelayed({
+                finish()
+            }, 400)
         }
     }
 
