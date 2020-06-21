@@ -1,7 +1,5 @@
 package com.bebetterprogrammer.tictactoe.activities
 
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
 import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
@@ -16,10 +14,9 @@ import com.bebetterprogrammer.tictactoe.R
 import com.bebetterprogrammer.tictactoe.utils.GamePlayUtility
 import com.bebetterprogrammer.tictactoe.utils.GetPosition
 import com.bebetterprogrammer.tictactoe.utils.Result
+import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.result_dialog.view.*
-import kotlin.properties.Delegates
-
 
 class GamePlayActivity : AppCompatActivity() {
     var x: Int = 0
@@ -55,12 +52,14 @@ class GamePlayActivity : AppCompatActivity() {
                 if (turn == 0) {
                     tv_turn.text = "$p2's Turn"
                     img.setImageResource(R.drawable.ic_circle_secondary)
-                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
                     img.startAnimation(animFadeIn)
                 } else if (turn == 1) {
                     tv_turn.text = "$p1's Turn"
                     img.setImageResource(R.drawable.ic_cross_yellow)
-                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
                     img.startAnimation(animFadeIn)
                 }
                 obj.isWin(
@@ -96,11 +95,13 @@ class GamePlayActivity : AppCompatActivity() {
                 }
                 if (turn == 0) {
                     img.setImageResource(R.drawable.ic_circle_secondary)
-                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
                     img.startAnimation(animFadeIn)
                 } else if (turn == 1) {
                     img.setImageResource(R.drawable.ic_cross_yellow)
-                    val animFadeIn = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
+                    val animFadeIn =
+                        AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in)
                     img.startAnimation(animFadeIn)
                 }
                 done++
@@ -226,7 +227,8 @@ class GamePlayActivity : AppCompatActivity() {
         }, 500)
 
         dialogView.btnRematch.setOnClickListener {
-            val animFadeOut = AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
+            val animFadeOut =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
             dialogView.startAnimation(animFadeOut)
             Handler().postDelayed({
                 reset()
@@ -235,7 +237,8 @@ class GamePlayActivity : AppCompatActivity() {
         }
 
         dialogView.btnQuit.setOnClickListener {
-            val animFadeOut = AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
+            val animFadeOut =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
             dialogView.startAnimation(animFadeOut)
             finish()
         }
