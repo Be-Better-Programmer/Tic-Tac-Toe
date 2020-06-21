@@ -240,7 +240,9 @@ class GamePlayActivity : AppCompatActivity() {
             val animFadeOut =
                 AnimationUtils.loadAnimation(applicationContext, R.anim.result_fade_out)
             dialogView.startAnimation(animFadeOut)
-            finish()
+            Handler().postDelayed({
+                finish()
+            }, 400)
         }
     }
 
