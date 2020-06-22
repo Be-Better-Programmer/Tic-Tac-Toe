@@ -7,7 +7,7 @@ import android.os.IBinder
 import com.bebetterprogrammer.tictactoe.R
 
 class MusicService : Service() {
-    protected lateinit var music:MediaPlayer
+    protected lateinit var music: MediaPlayer
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }

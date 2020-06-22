@@ -256,11 +256,11 @@ class GamePlayActivity : BaseActivity() {
         }
     }
 
-    private fun music(musicFlag: Boolean){
+    private fun music(musicFlag: Boolean) {
         var winMusic = MediaPlayer.create(this@GamePlayActivity, R.raw.game_sound_single_short_generic_click_pop)
         var lostMusic = MediaPlayer.create(this@GamePlayActivity, R.raw.cartoon_pop_mouth_004)
         var tieMusic = MediaPlayer.create(this@GamePlayActivity, R.raw.game_sound_double_short_generic_click_pop_002)
-        if(musicFlag == true  ) {
+        if (musicFlag == true) {
             if (obj.result == Result.WON) {
                 mFlag = false
                 Handler().postDelayed({
