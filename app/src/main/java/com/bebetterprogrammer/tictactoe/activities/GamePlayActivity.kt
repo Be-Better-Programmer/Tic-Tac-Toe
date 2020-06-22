@@ -1,6 +1,7 @@
 package com.bebetterprogrammer.tictactoe.activities
 
 import android.app.AlertDialog
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -8,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import com.bebetterprogrammer.tictactoe.utils.GamePlayUtility
@@ -18,7 +18,7 @@ import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.activity_gameplay.*
 import kotlinx.android.synthetic.main.result_dialog.view.*
 
-class GamePlayActivity : AppCompatActivity() {
+class GamePlayActivity : BaseActivity() {
     var x: Int = 0
     var turn: Int = 0
     var first: Int = 0
@@ -37,6 +37,7 @@ class GamePlayActivity : AppCompatActivity() {
     var getP = GetPosition()
     var flag = false
     var played = 0
+    var mFlag = false
 
     // 0 = O      1 = X     2 = blank
     private val obj = GamePlayUtility()
@@ -188,34 +189,43 @@ class GamePlayActivity : AppCompatActivity() {
     private fun openDialogBox(v: View, playerName: String) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
         val viewGroup = findViewById<ViewGroup>(android.R.id.content)
-        val dialogView: View =
-            LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
+        val dialogView: View = LayoutInflater.from(v.context).inflate(R.layout.result_dialog, viewGroup, false)
         builder.setView(dialogView)
         val alertDialog: AlertDialog = builder.create()
         if (vsWhom == 0) {
             if (obj.result == Result.WON) {
+                mFlag = true
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
                 dialogView.result.text = "Yeppii.. $playerName Won!"
                 dialogView.animation_view.visibility = View.VISIBLE
+                music(mFlag)
             } else if (obj.result == Result.TIE) {
+                mFlag = true
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
                 dialogView.result.text = playerName
                 dialogView.animation_view.visibility = View.VISIBLE
+                music(mFlag)
             }
         } else if (vsWhom == 1) {
             if (obj.result != Result.TIE) {
                 if (obj.playerWon) {
+                    mFlag = true
                     dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_won)
                     dialogView.result.text = "Yeppii.. You Won!"
                     dialogView.animation_view.visibility = View.VISIBLE
+                    music(mFlag)
                 } else if (obj.result == Result.LOST) {
+                    mFlag = true
                     dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_lost)
                     dialogView.result.text = "Ohh... You Lost!"
+                    music(mFlag)
                 }
             } else {
+                mFlag = true
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
                 dialogView.result.text = "That was a tie!"
                 dialogView.animation_view.visibility = View.VISIBLE
+                music(mFlag)
             }
         }
         alertDialog.setCancelable(false)
@@ -243,6 +253,34 @@ class GamePlayActivity : AppCompatActivity() {
             Handler().postDelayed({
                 finish()
             }, 400)
+        }
+    }
+
+    private fun music(musicFlag: Boolean){
+        var winMusic = MediaPlayer.create(this@GamePlayActivity, R.raw.game_sound_single_short_generic_click_pop)
+        var lostMusic = MediaPlayer.create(this@GamePlayActivity, R.raw.cartoon_pop_mouth_004)
+        var tieMusic = MediaPlayer.create(this@GamePlayActivity, R.raw.game_sound_double_short_generic_click_pop_002)
+        if(musicFlag == true  ) {
+            if (obj.result == Result.WON) {
+                mFlag = false
+                Handler().postDelayed({
+                    winMusic.start()
+                }, 500)
+            } else if (obj.result == Result.LOST) {
+                mFlag = false
+                Handler().postDelayed({
+                    lostMusic.start()
+                }, 500)
+            } else {
+                mFlag = false
+                Handler().postDelayed({
+                    tieMusic.start()
+                }, 500)
+            }
+        } else {
+            winMusic.stop()
+            lostMusic.stop()
+            tieMusic.stop()
         }
     }
 

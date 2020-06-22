@@ -10,7 +10,7 @@ import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_play_with_friend.*
 
-class PlayWithFriendActivity : AppCompatActivity() {
+class PlayWithFriendActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

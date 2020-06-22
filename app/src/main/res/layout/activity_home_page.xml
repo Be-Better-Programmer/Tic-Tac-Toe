@@ -8,6 +8,28 @@
     tools:ignore="MissingPrefix">
 
     <ImageButton
+        android:id="@+id/musicOnbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_music_on"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/musicOffbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_music_off"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/ratingBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
         android:id="@+id/shareBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -23,10 +45,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="24dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_rating"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shareBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
