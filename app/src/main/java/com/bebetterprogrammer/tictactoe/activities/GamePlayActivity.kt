@@ -294,6 +294,11 @@ class GamePlayActivity : AppCompatActivity() {
                 tv_turn.text = "Jarvis's Turn"
             }
         } else if (vsWhom == 0) {
+            if(pl == 0){
+                pl = 1
+            } else {
+                pl = 0
+            }
             if (player == 0) {
                 tv_turn.text = "$p1's Turn"
             } else if (player == 1) {
