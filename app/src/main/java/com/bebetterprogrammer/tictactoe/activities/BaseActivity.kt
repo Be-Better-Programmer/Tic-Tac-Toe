@@ -7,7 +7,7 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        startService(Intent(this@BaseActivity, MusicService::class.java))
+//        startService(Intent(this@BaseActivity, MusicService::class.java))
     }
 
     override fun onStop() {
