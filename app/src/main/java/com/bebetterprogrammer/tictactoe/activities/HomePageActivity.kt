@@ -58,14 +58,14 @@ class HomePageActivity : BaseActivity() {
         musicOffbtn.setOnClickListener {
             musicOnbtn.isVisible = true
             musicOffbtn.isVisible = false
-            editor.putInt("Pref",0)
+            editor.putInt("Pref", 0)
             editor.commit()
             startService(Intent(this, MusicService::class.java))
         }
         musicOnbtn.setOnClickListener {
             musicOnbtn.isVisible = false
             musicOffbtn.isVisible = true
-            editor.putInt("Pref",1)
+            editor.putInt("Pref", 1)
             editor.commit()
             stopService(Intent(this, MusicService::class.java))
         }

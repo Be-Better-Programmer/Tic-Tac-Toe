@@ -15,7 +15,7 @@ class MusicService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         music = MediaPlayer.create(this, R.raw.sky_puzzle)
         music.isLooping = true
-        music.setVolume(90.0f,90.0f)
+        music.setVolume(90.0f, 90.0f)
         music.start()
         return START_STICKY
     }
