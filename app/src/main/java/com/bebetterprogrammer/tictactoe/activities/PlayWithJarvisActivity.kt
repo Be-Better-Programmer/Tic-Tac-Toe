@@ -3,12 +3,11 @@ package com.bebetterprogrammer.tictactoe.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.bebetterprogrammer.tictactoe.BuildConfig
 import com.bebetterprogrammer.tictactoe.R
 import kotlinx.android.synthetic.main.activity_play_with_jarvis.*
 
-class PlayWithJarvisActivity : AppCompatActivity() {
+class PlayWithJarvisActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
